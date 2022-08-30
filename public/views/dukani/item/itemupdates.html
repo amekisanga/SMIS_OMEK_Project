@@ -1,0 +1,506 @@
+
+<!-- <div class="wrapper wrapper-content animated fadeInRight" ng-controller="ItemSalesController"> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-md-12 form-box"> -->
+<!-- <form  role="form" class="mortuary-form" action="javascript:void(0);"> -->
+<!-- <fieldset> -->
+<!-- <div class="form-top"> -->
+<!-- <div class="form-top-left"> -->
+<!-- <h4><span></span>ITEM UPDATE DASHBOARD</h4> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="form-bottom"> -->
+<!-- <div class="row hidden-print"> -->
+<!-- <ul class="nav nav-tabs nav-justified" > -->
+<!-- <li ng-class="{active: isSet(1) }"> -->
+<!-- <a href ng-click="setTab(1)"><span>ITEM UPDATE</span></a></li> -->
+<!-- <li ng-class="{active: isSet(2) }"  ng-click="getnewitemregistered()"> -->
+<!-- <a href ng-click="setTab(2)">ITEM UPDATED REPORT</a></li> -->
+<!-- <li ng-class="{active: isSet(3) }"  ng-click="getitemregistered()"> -->
+<!-- <a href ng-click="setTab(3)">NEW ITEM REGISTERED REPORT</a></li> -->
+<!-- </ul> -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- </div> -->
+
+<!-- <div class="row"> -->
+
+<!-- <div ng-show="isSet(1)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="panel panel-primary"> -->
+<!-- <div class="form-top">ITEM UPDATE FORM</div><br> -->
+<!-- <div class="panel-body"> -->
+
+    <!-- <div class="row"> -->
+		<!-- <div class=""> -->
+			<!-- <div class="input-group-btn"> -->
+			<!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="SEARCH ITEM BY NAME" ng-model="itemupdate" uib-typeahead="itemtosale as itemtosale.item_name for itemtosale in showItemtoupdate($viewValue) | filter:$viewValue | limitTo:3"> -->
+			<!-- </div> -->
+		<!-- </div> -->
+    <!-- </div> -->
+	<!-- <br> -->
+    <!-- <div class="row"> -->
+        <!-- <div class="form-group col-md-3 col-sm-3"> -->
+            <!-- <label>Item Buying Price</label> -->
+            <!-- <input type="number"  class="form-control reg" ng-model="itemupdate.buyingprice" placeholder="Enter Item Buying Price"> -->
+        <!-- </div> -->
+        <!-- <div class="form-group col-md-3 col-sm-3"> -->
+            <!-- <label>Item Selling Price</label> -->
+            <!-- <input type="number"  class="form-control reg" ng-model="itemupdate.sellingprice" placeholder="Enter Item Selling Price"> -->
+        <!-- </div> -->
+        <!-- <div class="form-group col-md-3 col-sm-3"> -->
+            <!-- <label>Item Quantity</label> -->
+            <!-- <input type="number"  class="form-control reg" ng-model="itemupdate.quantity" placeholder="Enter Item Buying Price"> -->
+        <!-- </div> -->
+        <!-- <div class="form-group col-md-3 col-sm-3"> -->
+            <!-- <label>Item Reorder Level</label> -->
+            <!-- <input type="number"  class="form-control reg" ng-model="itemupdate.reorder" placeholder="Enter Item Buying Price"> -->
+        <!-- </div> -->
+    <!-- </div> -->
+
+<!-- <BR> -->
+<!-- <button type="submit" class="btn btn-success" ng-click="saveitemupdate(itemupdate)">SAVE</button> -->
+<!-- </div> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div ng-show="isSet(3)"> -->
+
+<!-- SEARCH BY DATES: -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="col-md-4"> -->
+<!-- <input type="text" ng-model="selectdate.datefrom" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date From" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-4"> -->
+<!-- <input type="text" ng-model="selectdate.dateto" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date to" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-4"> -->
+<!-- <button type="submit" class="btn btn-primary btn-success" ng-click="getsalesreport(selectdate)">SUBMIT</button> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="panel panel-primary"> -->
+    <!-- <table class="table table-bordered table-striped"><br> -->
+        <!-- <b>UPDATED ITEMS LIST:</b> -->
+
+        <!-- <thead> -->
+        <!-- <tr> -->
+            <!-- <td class="text-navy">No#</td> -->
+            <!-- <td class="text-navy">Item Name</td> -->
+            <!-- <td class="text-navy">Item Category</td> -->
+            <!-- <td class="text-navy">Unit</td> -->
+            <!-- <td class="text-navy">Department</td> -->
+            <!-- <td class="text-navy">Quantity Old</td> -->
+            <!-- <td class="text-navy">Quantity New</td> -->
+            <!-- <td class="text-navy">New Quantity Bought</td> -->
+            <!-- <td class="text-navy">Buying Price Old</td> -->
+            <!-- <td class="text-navy">Buying Price New</td> -->
+            <!-- <td class="text-navy">Selling Price Old</td> -->
+            <!-- <td class="text-navy">Selling Price New</td> -->
+			<!-- <td class="text-navy">Reorder Level</td> -->
+            <!-- <td class="text-navy">Date Registered</td> -->
+            <!-- <td class="text-navy">Time Registered</td> -->
+            <!-- <td class="text-navy">Registered By</td> -->
+            <!-- <td class="text-navy">Facility</td> -->
+        <!-- </tr> -->
+        <!-- </thead> -->
+
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="itemregister in itemregistered | filter:search track by $index"> -->
+			
+            <!-- <td><b ng-if="!e">{{$index + 1}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.equipment_name"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregister.item_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregister.itemtyp}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{itemregister.unit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregister.department_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{itemregister.quantity_old}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregister.quantity_new}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregister.quantity_bought}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregister.buying_price_old}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Item Unit" ng-model="equipment.item_unit" uib-typeahead="item_units as item_units.unit for item_units in showItemtest($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregister.buying_price_new}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregister.selling_price_old}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregister.selling_price_new}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregister.reorder_level}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregister.date_bought}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregister.time_bought}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregister.name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{itemregister.facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+		<!-- </tr> -->
+		<!-- <tr align="center"> -->
+			<!-- <td colspan="15" align="center"> -->
+                <!-- <h3><b> -->
+				<!-- DETAILED LIST OF UPDATED ITEM'S -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <!-- -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_buyingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_sellingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ calcEmployee_sales(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_profit(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- --> -->
+			<!-- <td colspan="7"> -->
+                <!-- <h3> -->
+				 <!-- <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> PRINT UPDATED ITEM'S</button> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+		<!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+
+<!-- <div ng-show="isSet(2)"> -->
+
+<!-- SEARCH BY DATES: -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="col-md-4"> -->
+<!-- <input type="text" ng-model="selectdate.datefrom" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date From" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-4"> -->
+<!-- <input type="text" ng-model="selectdate.dateto" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date to" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-4"> -->
+<!-- <button type="submit" class="btn btn-primary btn-success" ng-click="getsalesreport(selectdate)">SUBMIT</button> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="panel panel-primary"> -->
+    <!-- <table class="table table-bordered table-striped"><br> -->
+        <!-- <b>NEW ITEM REGISTERED REPORT:</b> -->
+
+        <!-- <thead> -->
+        <!-- <tr> -->
+            <!-- <td class="text-navy">No#</td> -->
+            <!-- <td class="text-navy">Item Name</td> -->
+            <!-- <td class="text-navy">Item Category</td> -->
+            <!-- <td class="text-navy">Unit</td> -->
+            <!-- <td class="text-navy">Department</td> -->
+            <!-- <td class="text-navy">Quantity Old</td> -->
+            <!-- <td class="text-navy">Quantity New</td> -->
+            <!-- <td class="text-navy">New Quantity Bought</td> -->
+            <!-- <td class="text-navy">Buying Price Old</td> -->
+            <!-- <td class="text-navy">Buying Price New</td> -->
+            <!-- <td class="text-navy">Selling Price Old</td> -->
+            <!-- <td class="text-navy">Selling Price New</td> -->
+			<!-- <td class="text-navy">Reorder Level</td> -->
+            <!-- <td class="text-navy">Date Registered</td> -->
+            <!-- <td class="text-navy">Time Registered</td> -->
+            <!-- <td class="text-navy">Registered By</td> -->
+            <!-- <td class="text-navy">Facility</td> -->
+        <!-- </tr> -->
+        <!-- </thead> -->
+
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="itemregistered in newitemregistered | filter:search track by $index"> -->
+            <!-- <td><b ng-if="!e">{{$index + 1}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.equipment_name"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregistered.item_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregistered.itemtyp}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{itemregistered.unit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregistered.department_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{itemregistered.quantity_old}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregistered.quantity_new}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregistered.quantity_bought}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregistered.buying_price_old}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Item Unit" ng-model="equipment.item_unit" uib-typeahead="item_units as item_units.unit for item_units in showItemtest($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{itemregistered.buying_price_new}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregistered.selling_price_old}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregistered.selling_price_new}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregistered.reorder_level}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregistered.date_bought}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregistered.time_bought}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{itemregistered.name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{itemregistered.facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+		<!-- </tr> -->
+		<!-- <tr align="center"> -->
+			<!-- <td colspan="15" align="center"> -->
+                <!-- <h3><b> -->
+				<!-- DETAILED LIST OF REGISTERED ITEM'S -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <!-- -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_buyingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_sellingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ calcEmployee_sales(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_profit(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- --> -->
+			<!-- <td colspan="7"> -->
+                <!-- <h3> -->
+				 <!-- <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> PRINT NEW REGISTERED ITEM'S</button> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+		<!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+
+<!-- </fieldset> -->
+<!-- </form> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->

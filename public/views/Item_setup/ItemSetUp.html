@@ -1,0 +1,433 @@
+
+
+
+
+<!-- <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <!-- <div class="modal-dialog" role="document"> -->
+        <!-- <div class="modal-content"> -->
+            <!-- <div class="modal-header"> -->
+                <!-- <h5 class="modal-title" id="exampleModalLabel1"> Item Set Up </h5> -->
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                    <!-- <span aria-hidden="true">&times;</span> -->
+                <!-- </button> -->
+            <!-- </div> -->
+            <!-- <div class="modal-body"> -->
+                <!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
+                    <!-- <div class="row"> -->
+                        <!-- <div class="col-md-12 form-box"> -->
+                            <!-- <form  role="form" class="registration-form" action="javascript:void(0);"> -->
+                                <!-- <fieldset> -->
+                                    <!-- <div class="form-top"> -->
+                                        <!-- <div class="form-top-left"> -->
+                                            <!-- <h3><span><i class="fa fa-list-alt" aria-hidden="true"></i></span> Item Registration</h3> -->
+
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="form-bottom"> -->
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-8 col-sm-4"> -->
+                                                <!-- <label> Item Name</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  Item" ng-model="item.item_name"> -->
+                                                <!-- <p></p> -->
+
+
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-8 col-sm-4"> -->
+                                                <!-- <label> Department</label> -->
+                                                <!-- <select ng-model="item.dept_id" class="form-control"> -->
+
+                                                    <!-- <option ng-value="department.id" ng-repeat="department in departments">{{department.department_name}}</option> -->
+                                                <!-- </select> -->
+                                                <!-- <p></p> -->
+                                                <!-- <button class="btn btn-success" ng-click="item_registration(item)" >Register</button> -->
+
+
+                                            <!-- </div> -->
+
+
+                                        <!-- </div> -->
+
+                                    <!-- </div> -->
+
+                                <!-- </fieldset> -->
+                            <!-- </form> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+
+            <!-- </div> -->
+            <!-- <div class="modal-footer"> -->
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                <!-- <!--<button type="button" class="btn btn-primary">Send message</button>--> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+<!-- </div> -->
+
+
+
+<!-- <!--sample-&#45;&#45;&#45;&#45;&#45;&#45;modal-&#45;&#45;--> -->
+
+
+
+
+<!-- <!--sample-&#45;&#45;&#45;&#45;&#45;&#45;modal-&#45;&#45;--> -->
+
+
+
+
+
+
+
+<!-- <!--department--> -->
+<!-- <!--department list model--> -->
+
+
+
+
+                <!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
+                    <!-- <div class="row"> -->
+                        <!-- <div class="col-md-12 form-box"> -->
+                            <!-- <div class=""> -->
+                                <!-- <form action="#!" method="get"> -->
+                                    <!-- <div class="input-group"> -->
+                                        <!-- <input type="text"  class="form-control input-lg"  ng-model="search" placeholder="Search"   > -->
+
+                                        <!-- <div class="input-group-btn"> -->
+                                            <!-- <button class="btn btn-lg btn-success" type="submit"> -->
+                                                <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+                                            <!-- </button> -->
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+
+
+                                <!-- </form> -->
+                            <!-- </div> -->
+                            <!-- <p></p> -->
+                            <!-- <p></p> -->
+                            <!-- <form  role="form" class="registration-form" action="javascript:void(0);"> -->
+                                <!-- <fieldset> -->
+                                    <!-- <div class="form-top"> -->
+                                        <!-- <div class="form-top-left"> -->
+                                            <!-- <h3><span><i class="fa fa-list-alt" aria-hidden="true"></i></span> ITEMS LIST</h3> -->
+                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">Items Registration</button> -->
+                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3" data-whatever="@mdo">Items Mapping </button> -->
+
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="form-bottom"> -->
+                                        <!-- <!--department list--> -->
+
+                                        <!-- <table class="table table-bordered table-striped"   > -->
+
+
+                                            <!-- <thead> -->
+
+                                            <!-- <tr> -->
+                                                <!-- <td> -->
+
+                                                    <!-- No -->
+
+                                                <!-- </td> -->
+
+                                                <!-- <td> -->
+
+                                                    <!-- Item Name -->
+
+
+
+                                                <!-- </td> -->
+                                                <!-- <td> -->
+
+                                                    <!-- Department -->
+
+
+
+                                                <!-- </td> -->
+
+                                                <!-- <td> -->
+
+                                                    <!-- Edit -->
+
+                                                <!-- </td> <td  ng-if="!e"> -->
+
+                                                <!-- X -->
+
+                                            <!-- </td> -->
+                                            <!-- </tr> -->
+                                            <!-- </thead> -->
+
+                                            <!-- <tbody> -->
+                                            <!-- <tr ng-repeat="item in items | filter:search track by $index"> -->
+                                                <!-- <td>{{ $index+1 }}</td> -->
+
+                                                <!-- <td><b ng-if="!e">{{ item.item_name }}</b> -->
+                                                    <!-- <h3 ng-if="e"> -->
+
+                                                        <!-- <div class="form-group"> -->
+                                                            <!-- <input type="text" class="form-control" placeholder="Item Name" ng-model="item.item_name"> -->
+                                                        <!-- </div> -->
+
+
+                                                    <!-- </h3> -->
+                                                <!-- </td> -->
+                                                <!-- <td><b ng-if="!e">{{ item.department_name }}</b> -->
+                                                    <!-- <h3 ng-if="e"> -->
+
+                                                        <!-- <div class="form-group"> -->
+                                                            <!-- <select ng-model="item.dept_id" class="form-control"> -->
+                                                                <!-- <option>{{item.department_name}}</option> -->
+                                                                <!-- <option ng-value="department.id" ng-repeat="department in departments">{{department.department_name}}</option> -->
+                                                            <!-- </select> -->
+                                                        <!-- </div> -->
+
+
+                                                    <!-- </h3> -->
+                                                <!-- </td> -->
+
+                                                <!-- <td ng-if="e"> -->
+                                                    <!-- <h3 > -->
+
+                                                        <!-- <div class="form-group"> -->
+
+
+                                                            <!-- <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="item_update(item)">Update</button> -->
+
+                                                        <!-- </div> -->
+                                                    <!-- </h3> -->
+                                                    <!-- <!--<button class="btn btn-default" ng-click="edit(region.id)">Edit</button>--> -->
+
+
+
+
+                                                <!-- </td> -->
+                                                <!-- <td> -->
+                                                    <!-- <input type="checkbox" class="btn btn-info" ng-model="e">Edit -->
+                                                <!-- </td><td  ng-if="!e"> -->
+                                                <!-- <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="item_delete(item.item_name,item.id)">Delete</button> -->
+                                            <!-- </td> -->
+                                                <!-- <!--<td>{{ region.tastiness }}</td>--> -->
+                                            <!-- </tr> -->
+                                            <!-- </tbody> -->
+
+                                        <!-- </table> -->
+
+
+                                    <!-- </div> -->
+
+                                <!-- </fieldset> -->
+                            <!-- </form> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+
+
+
+                <!-- <!--department list--> -->
+
+
+
+
+            <!-- </div> -->
+
+        <!-- </div> -->
+    <!-- </div> -->
+<!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!--item mapping--> -->
+
+<!-- <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <!-- <div class="modal-dialog" role="document"> -->
+        <!-- <div class="modal-content"> -->
+            <!-- <div class="modal-header"> -->
+                <!-- <h5 class="modal-title" id="exampleModalLabel3"> Item Set Up </h5> -->
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                    <!-- <span aria-hidden="true">&times;</span> -->
+                <!-- </button> -->
+            <!-- </div> -->
+            <!-- <div class="modal-body"> -->
+                <!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
+                    <!-- <div class="row"> -->
+                        <!-- <div class="col-md-12 form-box"> -->
+                            <!-- <form  role="form" class="registration-form" action="javascript:void(0);"> -->
+                                <!-- <fieldset> -->
+                                    <!-- <div class="form-top"> -->
+                                        <!-- <div class="form-top-left"> -->
+                                            <!-- <h3><span><i class="fa fa-list-alt" aria-hidden="true"></i></span> Item Mapping Setup</h3> -->
+
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="form-bottom"> -->
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-6 col-sm-4"> -->
+                                                <!-- <label> Item Name</label> -->
+
+                                                <!-- <input type="text"  class="form-control reg" typeahead-on-select="" ng-model="item_type_map.selectedItem" placeholder="Search Item " uib-typeahead ="item as item.item_name  for item in items | limitTo:8 | filter:$viewValue"> -->
+
+
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-6 col-sm-4"> -->
+                                                <!-- <label> Item Code</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  Item Code" ng-model="item_type_map.item_code"> -->
+
+
+
+                                            <!-- </div> -->
+                                            <!-- </div> -->
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-6 col-sm-4"> -->
+                                                <!-- <label> Item Category</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  Item category" ng-model="item_type_map.item_category"> -->
+
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-6 col-sm-4"> -->
+                                                <!-- <label> Item Sub Category</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  Item sub category" ng-model="item_type_map.sub_item_category"> -->
+
+                                            <!-- </div> -->
+                                            <!-- </div> -->
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-6 col-sm-4"> -->
+                                                <!-- <label> Dose formulation</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  Dose formulation" ng-model="item_type_map.Dose_formulation"> -->
+
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-6 col-sm-4"> -->
+                                                <!-- <label> Unit Of Measure (UOM)</label> -->
+                                                <!-- <input type="number" class="form-control" min="0" placeholder="Enter  Unit Of Measure (UOM)" ng-model="item_type_map.unit_of_measure"> -->
+
+                                            <!-- </div> -->
+                                            <!-- </div> -->
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-6 col-sm-4"> -->
+                                                <!-- <label> Dispensing Uunit</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  Dispensing Uunit" ng-model="item_type_map.dispensing_unit"> -->
+
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-6 col-sm-4"> -->
+                                                <!-- <label>  </label> -->
+                                            <!-- <button class="btn btn-success" ng-click="item_type_map_registration(item_type_map)" >Register</button> -->
+
+                                            <!-- </div> -->
+
+                                        <!-- </div> -->
+
+
+                                        <!-- </div> -->
+
+                                    <!-- </div> -->
+
+
+                                <!-- </fieldset> -->
+                            <!-- </form> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- <div class="modal-footer"> -->
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                <!-- <!--<button type="button" class="btn btn-primary">Send message</button>--> -->
+            <!-- </div> -->
+            <!-- </div> -->
+
+        <!-- </div> -->
+    <!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+<!-- <script type="text/javascript"> -->
+    <!-- $(document).ready(function () { -->
+        <!-- $('.registration-form fieldset:first-child').fadeIn('slow'); -->
+
+        <!-- $('.registration-form input[type="text"]').on('focus', function () { -->
+            <!-- $(this).removeClass('input-error'); -->
+        <!-- }); -->
+
+        <!-- // next step -->
+        <!-- $('.registration-form .btn-next').on('click', function () { -->
+            <!-- var parent_fieldset = $(this).parents('fieldset'); -->
+            <!-- var next_step = true; -->
+
+            <!-- parent_fieldset.find('input[type="text"],input[type="email"]').each(function () { -->
+                <!-- if ($(this).val() == "") { -->
+                    <!-- $(this).addClass('input-error'); -->
+                    <!-- next_step = false; -->
+                <!-- } else { -->
+                    <!-- $(this).removeClass('input-error'); -->
+                <!-- } -->
+            <!-- }); -->
+
+            <!-- if (next_step) { -->
+                <!-- parent_fieldset.fadeOut(400, function () { -->
+                    <!-- $(this).next().fadeIn(); -->
+                <!-- }); -->
+            <!-- } -->
+
+        <!-- }); -->
+
+        <!-- // previous step -->
+        <!-- $('.registration-form .btn-previous').on('click', function () { -->
+            <!-- $(this).parents('fieldset').fadeOut(400, function () { -->
+                <!-- $(this).prev().fadeIn(); -->
+            <!-- }); -->
+        <!-- }); -->
+
+        <!-- // submit -->
+        <!-- $('.registration-form').on('submit', function (e) { -->
+
+            <!-- $(this).find('input[type="text"],input[type="email"]').each(function () { -->
+                <!-- if ($(this).val() == "") { -->
+                    <!-- e.preventDefault(); -->
+                    <!-- $(this).addClass('input-error'); -->
+                <!-- } else { -->
+                    <!-- $(this).removeClass('input-error'); -->
+                <!-- } -->
+            <!-- }); -->
+
+        <!-- }); -->
+
+
+    <!-- }); -->
+<!-- </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!--facility setting ending--> -->
+
+
+
+
+
+
+
+
+
+

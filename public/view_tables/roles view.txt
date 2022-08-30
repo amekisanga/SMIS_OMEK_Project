@@ -1,0 +1,56 @@
+
+CREATE OR REPLACE VIEW `vw_user_level` AS ( select 
+t4.module as state_p, 
+t5.grant as allowed,
+t4.title as descr,
+t4.id as permission_id,
+
+
+ t1.title as user_type 
+
+from tbl_permission_roles t5, 
+tbl_roles t1 , 
+
+tbl_permissions t4 
+
+
+WHERE  t5.role_id=t1.id AND t5.permission_id=t4.id );
+
+
+
+CREATE OR REPLACE VIEW `vw_user_access_level` AS ( select 
+
+t3.state_p, 
+t3.allowed,
+t3.descr,
+t3.user_type ,
+t1.user_id,
+t1.grant as is_it_allowed_to_access
+
+from tbl_permission_users t1, 
+vw_user_level t3 
+
+WHERE  t1.permission_id=t3.permission_id );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

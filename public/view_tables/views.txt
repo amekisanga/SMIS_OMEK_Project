@@ -1,0 +1,11 @@
+ 
+	
+DROP VIEW IF EXISTS `vw_user_role_permission`;
+CREATE VIEW `vw_user_role_permission` AS
+    select tbl_roles.title as role, tbl_permissions.title as state, tbl_permission_users.user_id, 
+	tbl_permission_users.grant as permission_user_grant,users.name, tbl_permission_roles.grant as permission_grant, tbl_permission_roles.role_id
+	from tbl_roles inner join tbl_permission_roles on tbl_roles.id = tbl_permission_roles.role_id
+	inner join tbl_permissions on tbl_permission_roles.permission_id = tbl_permissions.id
+	inner join tbl_permission_users on tbl_permission_users.permission_id = tbl_permission_roles.permission_id
+	inner join users on tbl_permission_users.user_id = users.id
+	;

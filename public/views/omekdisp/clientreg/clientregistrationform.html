@@ -1,0 +1,80 @@
+
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="clientregController">
+<div class="row">
+<div class="col-md-12">
+	<!-- <div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+	
+	</div> -->
+<form  role="form">
+<fieldset>
+<div class="form-top">
+                        <div class="form-top-left">
+                            <h3><span><i class="fa fa-user-md" aria-hidden="true"></i></span>  Client Registration Form</h3>
+							
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <div class="row">
+                            <div class="form-group col-md-4 col-sm-4">
+                                <label>First Name *</label>
+                                <input type="text" ng-model="client.first_name" class="form-control" placeholder="Firstname" id="first_name">
+                            </div>
+                            <div class="form-group col-md-4 col-sm-4">
+                                <label>Middle Name *</label>
+                                <input type="text" ng-model="client.middle_name" class="form-control" placeholder="Middlename" id="middle_name">
+                            </div>
+                            <div class="form-group col-md-4 col-sm-4">
+                                <label>Last Name *</label>
+                                <input type="text" ng-model="client.last_name" class="form-control" placeholder="Lastname" id="last_name">
+                            </div>
+                        </div>
+
+                        <div class="row">
+						
+							<div class="form-group col-md-4 col-sm-4">
+                                <label>Age *</label>
+                                <input type="text" ng-model="client.age" class="form-control" placeholder="Enter Client Age" id="lname">
+                            </div>
+							
+                            <div class="form-group col-md-4 col-sm-4">
+                                <label>Gender *</label>
+								<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Client Gender" ng-model="client.genders" uib-typeahead="genders as genders.gender_name for genders in showGender($viewValue) | filter:$viewValue | limitTo:3">
+								
+							</div>
+                           
+                            <div class="form-group col-md-4 col-sm-4">
+                                <label>Residence:</label>
+								<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Residence" ng-model="client.residences" uib-typeahead="residences as residences.residence_name for residences in showResidence($viewValue) | filter:$viewValue | limitTo:3">      
+                            </div>
+							
+                        </div>
+						
+						<div class="row">
+                            <div class="form-group col-md-4 col-sm-4">
+                                <label>Contact:</label>
+								
+                                <input type="text"  ng-model="client.mobile_number" class="form-control" placeholder="Enter Client Contact">
+                            </div>
+                        
+                            <div class="form-group col-md-4 col-sm-4">
+                                <label>Occupation:</label>
+                                <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Occupation" ng-model="client.occupation" uib-typeahead="occupation as occupation.occupation_name for occupation in showOccupation($viewValue) | filter:$viewValue | limitTo:3">
+                            </div>
+                        </div>
+						
+							 <button style="float: left; type="submit" class="btn btn-success btn-space" ng-click="closeModal()"> Close </button>
+							 
+							 <button style="float: right; type="submit" class="btn btn-success btn-space" ng-click="client_registration(client)"> Register Client </button>
+							 <br>
+	                         
+                    </div>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+
+
+

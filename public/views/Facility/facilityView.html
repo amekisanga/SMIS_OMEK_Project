@@ -1,0 +1,641 @@
+
+<!-- <!--department--> -->
+
+
+<!-- <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <!-- <div class="modal-dialog" role="document"> -->
+        <!-- <div class="modal-content"> -->
+            <!-- <div class="modal-header"> -->
+                <!-- <h5 class="modal-title" id="exampleModalLabel1"> Department </h5> -->
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                    <!-- <span aria-hidden="true">&times;</span> -->
+                <!-- </button> -->
+            <!-- </div> -->
+            <!-- <div class="modal-body"> -->
+                <!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
+                    <!-- <div class="row"> -->
+                        <!-- <div class="col-md-12 form-box"> -->
+                            <!-- <form  role="form" class="registration-form" action="javascript:void(0);"> -->
+                                <!-- <fieldset> -->
+                                    <!-- <div class="form-top"> -->
+                                        <!-- <div class="form-top-left"> -->
+                                            <!-- <h3><span><i class="fa fa-list-alt" aria-hidden="true"></i></span> Department Registration</h3> -->
+
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="form-bottom"> -->
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-8 col-sm-4"> -->
+                                                <!-- <label> Department Name</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  department" ng-model="department.department_name"> -->
+                                                <!-- <p></p> -->
+                                                <!-- <button class="btn btn-success" ng-click="department_registration(department)" >Register</button> -->
+
+
+                                            <!-- </div> -->
+
+
+                                        <!-- </div> -->
+
+                                    <!-- </div> -->
+
+                                <!-- </fieldset> -->
+                            <!-- </form> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+
+            <!-- </div> -->
+            <!-- <div class="modal-footer"> -->
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                <!-- <!--<button type="button" class="btn btn-primary">Send message</button>--> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+<!-- </div> -->
+
+
+
+
+<!-- <!--sample-&#45;&#45;&#45;&#45;&#45;&#45;modal-&#45;&#45;--> -->
+
+
+<!-- <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <!-- <div class="modal-dialog" role="document"> -->
+        <!-- <div class="modal-content"> -->
+            <!-- <div class="modal-header"> -->
+                <!-- <h5 class="modal-title" id="exampleModalLabel3"> Facility Types </h5> -->
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                    <!-- <span aria-hidden="true">&times;</span> -->
+                <!-- </button> -->
+            <!-- </div> -->
+            <!-- <div class="modal-body"> -->
+                <!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
+                    <!-- <div class="row"> -->
+                        <!-- <div class="col-md-12 form-box"> -->
+                            <!-- <form  role="form" class="registration-form" action="javascript:void(0);"> -->
+                                <!-- <fieldset> -->
+                                    <!-- <div class="form-top"> -->
+                                        <!-- <div class="form-top-left"> -->
+                                            <!-- <h3><span><i class="fa fa-list-alt" aria-hidden="true"></i></span> Facility Types</h3> -->
+
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="form-bottom"> -->
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-8 col-sm-4"> -->
+                                                <!-- <label> Facility Type Name</label> -->
+                                                <!-- <input type="text" data-toggle="tooltip" title="Enter  Facility Type" class="form-control" placeholder="Enter  Facility Type" ng-model="facility_type.description"> -->
+
+                                                <!-- <p></p> -->
+                                                <!-- <button class="btn btn-success" ng-click="facility_type_registration(facility_type)" >Register</button> -->
+
+                                            <!-- </div> -->
+
+
+                                        <!-- </div> -->
+
+                                    <!-- </div> -->
+
+                                <!-- </fieldset> -->
+                            <!-- </form> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+
+
+                <!-- <!--department list--> -->
+
+                <!-- <table class="table table-bordered table-striped" ing-if="facility_types" > -->
+                    <!-- <b>Facility Type Total:{{facility_types.length}}</b> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <div class="input-group"> -->
+
+
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <thead> -->
+                    <!-- <tr> -->
+                        <!-- <td> -->
+
+                            <!-- No# -->
+
+                        <!-- </td> -->
+
+                        <!-- <td> -->
+
+                            <!-- Facility Type -->
+
+
+
+                        <!-- </td> -->
+
+                        <!-- <td> -->
+
+                            <!-- Edit -->
+
+                        <!-- </td> <td  ng-if="!e"> -->
+
+                        <!-- X -->
+
+                    <!-- </td> -->
+                    <!-- </tr> -->
+                    <!-- </thead> -->
+
+                    <!-- <tbody> -->
+                    <!-- <tr ng-repeat="facility_type in facility_types | filter:search track by $index"> -->
+                        <!-- <td>{{ $index+1 }}</td> -->
+
+                        <!-- <td><b ng-if="!e">{{ facility_type.description }}</b> -->
+                            <!-- <h3 ng-if="e"> -->
+
+                                <!-- <div class="form-group"> -->
+                                    <!-- <input type="text" class="form-control" placeholder="facility_type" ng-model="facility_type.description"> -->
+                                <!-- </div> -->
+
+
+                            <!-- </h3> -->
+                        <!-- </td> -->
+
+                        <!-- <td ng-if="e"> -->
+                            <!-- <h3 > -->
+
+                                <!-- <div class="form-group"> -->
+
+
+                                    <!-- <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="facility_type_update(facility_type)">Update</button> -->
+
+                                <!-- </div> -->
+                            <!-- </h3> -->
+                            <!-- <!--<button class="btn btn-default" ng-click="edit(region.id)">Edit</button>--> -->
+
+
+
+
+                        <!-- </td> -->
+                        <!-- <td> -->
+                            <!-- <input type="checkbox" class="btn btn-info" ng-model="e">Edit -->
+                        <!-- </td><td  ng-if="!e"> -->
+                        <!-- <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="facility_type_delete(facility_type.description,facility_type.id)">Delete</button> -->
+                    <!-- </td> -->
+                        <!-- <!--<td>{{ region.tastiness }}</td>--> -->
+                    <!-- </tr> -->
+                    <!-- </tbody> -->
+
+                <!-- </table> -->
+
+                <!-- <!--facility Type list--> -->
+
+
+
+
+            <!-- </div> -->
+            <!-- <div class="modal-footer"> -->
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                <!-- <!--<button type="button" class="btn btn-primary">Send message</button>--> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+<!-- </div> -->
+
+
+
+<!-- <!--sample-&#45;&#45;&#45;&#45;&#45;&#45;modal-&#45;&#45;--> -->
+
+
+
+
+
+
+
+<!-- <!--department--> -->
+<!-- <!--department list model--> -->
+
+
+
+<!-- <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <!-- <div class="modal-dialog" role="document"> -->
+        <!-- <div class="modal-content"> -->
+            <!-- <div class="modal-header"> -->
+                <!-- <h5 class="modal-title" id="exampleModalLabel4"> Departments </h5> -->
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                    <!-- <span aria-hidden="true">&times;</span> -->
+                <!-- </button> -->
+            <!-- </div> -->
+            <!-- <div class="modal-body"> -->
+                <!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
+                    <!-- <div class="row"> -->
+                        <!-- <div class="col-md-12 form-box"> -->
+                            <!-- <div class=""> -->
+                                <!-- <form action="#!" method="get"> -->
+                                    <!-- <div class="input-group"> -->
+                                        <!-- <input type="text"  class="form-control input-lg"   ng-model="search" placeholder="Search..." >            <div class="input-group-btn"> -->
+                                        <!-- <button class="btn btn-lg btn-success" type=""> -->
+                                            <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+                                        <!-- </button> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+
+
+                                <!-- </form> -->
+                            <!-- </div> -->
+                            <!-- <p></p> -->
+                            <!-- <p></p> -->
+                            <!-- <form  role="form" class="registration-form" action="javascript:void(0);"> -->
+                                <!-- <fieldset> -->
+                                    <!-- <div class="form-top"> -->
+                                        <!-- <div class="form-top-left"> -->
+                                            <!-- <h3><span><i class="fa fa-list-alt" aria-hidden="true"></i></span> Departments</h3> -->
+
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="form-bottom"> -->
+                                        <!-- <!--department list--> -->
+
+                                        <!-- <table class="table table-bordered table-striped"   > -->
+
+                                            <!-- <thead> -->
+
+                                            <!-- <tr> -->
+                                                <!-- <td> -->
+
+                                                    <!-- No -->
+
+                                                <!-- </td> -->
+
+                                                <!-- <td> -->
+
+                                                    <!-- Department -->
+
+
+
+                                                <!-- </td> -->
+
+                                                <!-- <td> -->
+
+                                                    <!-- Edit -->
+
+                                                <!-- </td> <td  ng-if="!e"> -->
+
+                                                <!-- X -->
+
+                                            <!-- </td> -->
+                                            <!-- </tr> -->
+                                            <!-- </thead> -->
+
+                                            <!-- <tbody> -->
+                                            <!-- <tr ng-repeat="department in departments | filter:search track by $index"> -->
+                                                <!-- <td>{{ $index+1 }}</td> -->
+
+                                                <!-- <td><b ng-if="!e">{{ department.department_name }}</b> -->
+                                                    <!-- <h3 ng-if="e"> -->
+
+                                                        <!-- <div class="form-group"> -->
+                                                            <!-- <input type="text" class="form-control" placeholder="department" ng-model="department.department_name"> -->
+                                                        <!-- </div> -->
+
+
+                                                    <!-- </h3> -->
+                                                <!-- </td> -->
+
+                                                <!-- <td ng-if="e"> -->
+                                                    <!-- <h3 > -->
+
+                                                        <!-- <div class="form-group"> -->
+
+
+                                                            <!-- <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="department_update(department)">Update</button> -->
+
+                                                        <!-- </div> -->
+                                                    <!-- </h3> -->
+                                                    <!-- <!--<button class="btn btn-default" ng-click="edit(region.id)">Edit</button>--> -->
+
+
+
+
+                                                <!-- </td> -->
+                                                <!-- <td> -->
+                                                    <!-- <input type="checkbox" class="btn btn-info" ng-model="e">Edit -->
+                                                <!-- </td><td  ng-if="!e"> -->
+                                                <!-- <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="department_delete(department.department_name,department.id)">Delete</button> -->
+                                            <!-- </td> -->
+                                                <!-- <!--<td>{{ region.tastiness }}</td>--> -->
+                                            <!-- </tr> -->
+                                            <!-- </tbody> -->
+
+                                        <!-- </table> -->
+
+
+                                    <!-- </div> -->
+
+                                <!-- </fieldset> -->
+                            <!-- </form> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+
+
+
+                <!-- <!--department list--> -->
+
+
+
+
+            <!-- </div> -->
+            <!-- <div class="modal-footer"> -->
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                <!-- <!--<button type="button" class="btn btn-primary">Send message</button>--> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+<!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!--department list model--> -->
+
+
+
+
+
+
+
+<!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
+                <!-- <div class="row"> -->
+                    <!-- <div class="col-md-12 form-box"> -->
+                        <!-- <form  role="form" class="registration-form" action="javascript:void(0);"> -->
+                            <!-- <fieldset> -->
+                                <!-- <div class="form-top"> -->
+                                    <!-- <div class="form-top-left"> -->
+                                        <!-- <h3><span><i class="" aria-hidden="true"></i></span> -->
+
+                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3" data-whatever="@mdo">Facility Types</button> -->
+                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">Facility Departments</button> -->
+
+                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4" data-whatever="@mdo">Departments List</button> -->
+
+                                        <!-- </h3> -->
+
+                                    <!-- </div> -->
+                                <!-- </div> -->
+                                <!-- <div class="form-bottom"> -->
+                                    <!-- <!--FACILITY TYPE SETTING STARTING--> -->
+                                    <!-- <strong direction="right"   ng-if="del"><i     class="btn btn-danger form-control">{{deleted}}</i></strong> -->
+                                    <!-- <strong direction="left"    ng-if="kol"><i    class="btn btn-success form-control ">{{good}}</i></strong> -->
+
+                                    <!-- <div > -->
+
+
+
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                                <!-- <label> Facility Code</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  facility Code" ng-model="facility.facility_code"> -->
+
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                                <!-- <label>Facility Name</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  facility Name" ng-model="facility.facility_name"> -->
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                                <!-- <label>Address</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  facility Address" ng-model="facility.address"> -->
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+
+                                        <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                                <!-- <label> Email</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  facility  Email" ng-model="facility.email"> -->
+
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                                <!-- <label>Mobile Number</label> -->
+                                                <!-- <input type="text" class="form-control" placeholder="Enter  facility  Phone Number" ng-model="facility.mobile_number"> -->
+
+
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                                <!-- <label>Facility Type</label> -->
+                                                <!-- <select ng-model="facility.facility_type_id" class="form-control"> -->
+
+                                                    <!-- <option ng-value="facility_type.id" ng-repeat="facility_type in facility_types">{{facility_type.description}}</option> -->
+                                                <!-- </select> -->
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+
+                                                    <!-- <div class="row"> -->
+                                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                                <!-- <label> Council</label> -->
+                                                <!-- <select ng-model="facility.council_id" class="form-control"> -->
+
+                                                    <!-- <option ng-value="council.id" ng-repeat="council in councils">{{council.council_name}}</option> -->
+                                                <!-- </select> -->
+                                            <!-- </div> -->
+                                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                                <!-- <label>Region</label> -->
+                                                <!-- <select ng-model="facility.region_id" class="form-control"> -->
+
+                                                    <!-- <option ng-value="region.id" ng-repeat="region in regions">{{region.region_name}}</option> -->
+                                                <!-- </select> -->
+                                            <!-- </div> -->
+
+                                        <!-- </div> -->
+
+
+
+
+
+
+
+
+                                        <!-- </div> -->
+
+
+
+                                        <!-- <button class="btn btn-success" ng-click="facility_registration(facility)" >Register</button> -->
+                                        <!-- <p></p> -->
+
+
+
+
+
+
+
+                                    <!-- </div> -->
+                                <!-- </div> -->
+
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <!--FACILTY SETTING  ENDING--> -->
+
+        <!-- </div> -->
+        <!-- </fieldset> -->
+        <!-- </form> -->
+    <!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+
+
+<!-- <script type="text/javascript"> -->
+    <!-- $(document).ready(function () { -->
+        <!-- $('.registration-form fieldset:first-child').fadeIn('slow'); -->
+
+        <!-- $('.registration-form input[type="text"]').on('focus', function () { -->
+            <!-- $(this).removeClass('input-error'); -->
+        <!-- }); -->
+
+        <!-- // next step -->
+        <!-- $('.registration-form .btn-next').on('click', function () { -->
+            <!-- var parent_fieldset = $(this).parents('fieldset'); -->
+            <!-- var next_step = true; -->
+
+            <!-- parent_fieldset.find('input[type="text"],input[type="email"]').each(function () { -->
+                <!-- if ($(this).val() == "") { -->
+                    <!-- $(this).addClass('input-error'); -->
+                    <!-- next_step = false; -->
+                <!-- } else { -->
+                    <!-- $(this).removeClass('input-error'); -->
+                <!-- } -->
+            <!-- }); -->
+
+            <!-- if (next_step) { -->
+                <!-- parent_fieldset.fadeOut(400, function () { -->
+                    <!-- $(this).next().fadeIn(); -->
+                <!-- }); -->
+            <!-- } -->
+
+        <!-- }); -->
+
+        <!-- // previous step -->
+        <!-- $('.registration-form .btn-previous').on('click', function () { -->
+            <!-- $(this).parents('fieldset').fadeOut(400, function () { -->
+                <!-- $(this).prev().fadeIn(); -->
+            <!-- }); -->
+        <!-- }); -->
+
+        <!-- // submit -->
+        <!-- $('.registration-form').on('submit', function (e) { -->
+
+            <!-- $(this).find('input[type="text"],input[type="email"]').each(function () { -->
+                <!-- if ($(this).val() == "") { -->
+                    <!-- e.preventDefault(); -->
+                    <!-- $(this).addClass('input-error'); -->
+                <!-- } else { -->
+                    <!-- $(this).removeClass('input-error'); -->
+                <!-- } -->
+            <!-- }); -->
+
+        <!-- }); -->
+
+
+    <!-- }); -->
+<!-- </script> -->
+
+
+
+<!-- <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+                <!-- <div class="modal-dialog" role="document"> -->
+                    <!-- <div class="modal-content"> -->
+                        <!-- <div class="modal-header"> -->
+                            <!-- <h5 class="modal-title" id="exampleModalLabel"> FACILITY   TYPE SETTING</h5> -->
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                                <!-- <span aria-hidden="true">&times;</span> -->
+                            <!-- </button> -->
+                        <!-- </div> -->
+                        <!-- <div class="modal-body"> -->
+                            <!-- <!--EXEMPTION  TYPE SETTING STARTING--> -->
+                            <!-- <strong direction="right"   ng-if="del"><i     class="btn btn-danger form-control">{{deleted}}</i></strong> -->
+                            <!-- <strong direction="left"    ng-if="kol"><i    class="btn btn-success form-control ">{{good}}</i></strong> -->
+
+                            <!-- <div > -->
+
+
+                                <!-- <p></p> -->
+                                <!-- <div class="form-group"> -->
+                                    <!-- <div class="input-group"> -->
+                                        <!-- <div class="input-group-addon"><i class="glyphicon "> -->
+                                            <!-- Description</i></div> -->
+
+                                        <!-- <input type="text" data-toggle="tooltip" title="Enter  Facility Type" class="form-control" placeholder="Enter  Facility Type" ng-model="facility_type.description"> -->
+
+                                    <!-- </div> -->
+                                <!-- </div> -->
+
+
+                                <!-- <button class="btn btn-success" ng-click="facility_type_registration(facility_type)" >Register</button> -->
+                                <!-- <p></p> -->
+
+
+
+
+
+
+
+
+                            <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="modal-footer"> -->
+                            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                            <!-- <!--<button type="button" class="btn btn-primary">Send message</button>--> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
+
+            <!-- <!--model two---> -->
+
+
+
+
+
+
+    <!-- <!--facility setting starting--> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- <!--facility setting ending--> -->
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+
+
+<div class="wrapper wrapper-content animated fadeInRight" >
+<div class="row">
+<div class="col-md-12">
+<form  role="form">
+<fieldset>
+
+<div class="form-bottom" >
+<div onload="receiptprint()" id="printreceiptid">
+<table class="table table-bordered" cellspacing="3">
+
+<p align="center" class="text-navy"><font size="4">{{loadsalesreceipt[0].facility_name}} <br></font> <font size="2">{{loadsalesreceipt[0].address}},TANZANIA <br> MOBILE: {{loadsalesreceipt[0].mobile_number}}, EMAIL: {{loadsalesreceipt[0].email}}</font></p> 
+
+<p align="left" class="text-navy"><font size="4">Sales Receipt: &nbsp;{{loadsalesreceipt[0].date_sold}}-{{loadsalesreceipt[0].time_sold}}</font></p>
+
+<tr> 
+<td class="text-navy">NO:</td> 
+<td class="text-navy">ITEM:</td> 
+<td class="text-navy">QUANTITY:</td>
+<td class="text-navy">UNIT PRICE:</td> 
+<td class="text-navy">TOTAL:</td>
+</tr>
+<tr ng-repeat="salesreceipt in loadsalesreceipt track by $index" align="center">
+<td>{{$index + 1}}</td>
+<td>{{salesreceipt.item_name}}</td>
+<td>{{salesreceipt.quantity_sold}}</td> 
+<td>{{salesreceipt.selling_price}}</td>
+<td>{{salesreceipt.sale_amount_total}}</td> 
+</tr>
+
+<tr>
+<td colspan="4" align="center">TOTAL</td>
+<!-- <td>{{sales_total(loadsalesreceipt)}}</td> -->
+</tr>
+
+</table>
+</div>
+<button type="submit" class="btn btn-success pull-right" ng-Click="receiptprint(printreceiptid)">
+<span fa fa-upload></span>Print Receipt
+</button>
+<br>
+</div>
+</div>
+</div>
+</div>
+
+

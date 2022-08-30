@@ -1,0 +1,61 @@
+<style type="text/css" media="screen">
+ body{
+  background: rgba(0,0,0,0.09);
+    font-family: 'Roboto','Helvetica','san-sarif';
+
+}
+</style>
+<div class="push-bottom bg-login">
+  <div class="container">
+  <div class="row">
+    <div class=" col-xs-6 col-sm-offset-3">
+      
+      <div class="login-wrapper">
+        <div class="logo-container">
+         <img src="public/img/thumb_gov_tanzania_logo.png" alt="" class="img-responsive center-block">
+         <div class="logo-text">
+           <h2 style="font-size:18px; font-weight:600;">OMEK DISPENSARY LOGIN</h2>
+         </div>
+        </div>
+     
+    <form ng-submit="auth.login()" onsubmit="return ray.ajax()">
+     
+  <script>
+    
+    $( ".input" ).focusin(function() {
+  $( this ).find( "span" ).animate({"opacity":"0"}, 200);
+});
+
+$( ".input" ).focusout(function() {
+  $( this ).find( "span" ).animate({"opacity":"1"}, 300);
+});
+
+  </script>
+    
+<div class="input">
+  <input type="text" ng-model="auth.email"  placeholder="Username"  />
+  <span><i class="fa fa-user-md green"></i></span>
+</div>
+
+<div class="input">
+  <input type="password"  ng-model="auth.password"  placeholder="Password"  />
+  <span><i class="fa fa-lock green"></i></span>
+</div>  
+<div class="xs-md-12">
+<div class="form-group">
+<input type="submit" onclick="setTimeout(ifTimeIsTooLong, 25000);" 
+value="Sign in" class="btn btn-success btn-lg btn-block">
+</div>
+</div>
+<div class="xs-md-12">
+<div class='' ng-if="error">
+<button disabled>Whoops!!!!!!!:  {{error}}</button>
+</div>
+</div>
+<!-- Modal -->
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>

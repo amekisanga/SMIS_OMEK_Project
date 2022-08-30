@@ -1,0 +1,971 @@
+<!-- <div class="wrapper wrapper-content animated fadeInRight" ng-controller="ReportController"> -->
+<!-- <div class="row"> -->
+
+<!-- <div class="col-md-12 form-box"> -->
+<!-- <div class="form-top"> -->
+<!-- <div class="form-top-left"> -->
+<!-- <h4><span></span>REPORT MODULE</h4> -->
+<!-- </div> -->
+<!-- </div> -->
+
+
+<!-- <div class="form-bottom"> -->
+<!-- <div class="row hidden-print"> -->
+<!-- <ul class="nav nav-tabs nav-justified"> -->
+
+<!-- <li ng-class="{active: isSet(1) }"><a href ng-click="setTab(1)"><span>SALES REPORT</span></a></li> -->
+<!-- <li ng-class="{active: isSet(2) }"><a href ng-click="setTab(2)"><span>EMPLOYEE REPORT</span></a></li> -->
+<!-- <li ng-class="{active: isSet(3) }"><a href ng-click="setTab(3)"><span>STOCK REPORT</span></a></li> -->
+<!-- <li ng-class="{active: isSet(4) }" ><a href ng-click="setTab(4)"><span style="color:red">OUT OF STOCK REPORT &nbsp;&nbsp;{{outofstock.length}}</span></a></li> -->
+<!-- <li ng-class="{active: isSet(5) }"><a href ng-click="setTab(5)"><span>DETAILED SALES REPORT</span></a></li> -->
+
+<!-- </ul> -->
+<!-- <br> -->
+
+<!-- </div> -->
+
+<!-- <div class="row"> -->
+<!-- <div ng-show="isSet(1)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="col-md-4"> -->
+<!-- <input type="text" ng-model="selectdate.datefrom" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date From" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-4"> -->
+<!-- <input type="text" ng-model="selectdate.dateto" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date to" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-4"> -->
+<!-- <button type="submit" class="btn btn-primary btn-success" ng-click="getsalesreport(selectdate)">SUBMIT</button> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <!--Start of Comment for sales report --> -->
+<!-- <div class="col-md-12" ng-if="sales_report.length == 0"> -->
+<!-- <div class="panel panel-primary" align="center"> -->
+<!-- <br><b>NO REPORT FOUND FROM: &nbsp;{{selectdate.datefrom}} TO: &nbsp;{{selectdate.dateto}} </b> -->
+<!-- </div></div> -->
+
+<!-- <div class="col-md-12" ng-if="sales_report.length > 0"> -->
+<!-- <div class="panel panel-primary"> -->
+    <!-- <table class="table table-bordered table-striped"> -->
+<!-- <p><h2 align="center"><b>DETAILED SALES REPORT &nbsp;&nbsp;FROM:&nbsp;{{selectdate.datefrom}}  &nbsp;&nbsp;TO:&nbsp;{{selectdate.dateto}}</b></h2></p> -->
+
+        <!-- <thead> -->
+        <!-- <tr align="center"> -->
+            <!-- <td class="text-navy">NO#</td> -->
+            <!-- <td class="text-navy">ITEM NAME</td> -->
+            <!-- <td class="text-navy">UNIT</td> -->
+            <!-- <td class="text-navy">BATCH</td> -->
+            <!-- <td class="text-navy">DEPARTMENT</td> -->
+            <!-- <td class="text-navy">QUANTITY SOLD</td> -->
+            <!-- <td class="text-navy">BUYING PRICE@</td> -->
+            <!-- <td class="text-navy">SELLING PRICE@</td> -->
+            <!-- <td class="text-navy">EXPENCTED TOTAL SALE</td> -->
+            <!-- <td class="text-navy">EXPENCTED TOTAL PROFIT</td> -->
+			<!-- <td class="text-navy">NEW SELLING PRICE</td> -->
+			<!-- <td class="text-navy">NEW TOTAL SALE</td> -->
+			<!-- <td class="text-navy">NEW TOTAL PROFIT</td> -->
+            <!-- <td class="text-navy">DATE AND TIME SOLD</td> -->
+            <!-- <td class="text-navy">SOLD BY</td> -->
+            <!-- <td class="text-navy">FACILITY</td> -->
+
+        <!-- </tr> -->
+        <!-- </thead> -->
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="salereport in sales_report" align="center"> -->
+
+            <!-- <td><b ng-if="!e">{{$index + 1}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.equipment_name"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{salereport.item_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{salereport.unit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{salereport.batch_id}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+            <!-- <td><b ng-if="!e">{{salereport.department_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{salereport.quantity_sold}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{salereport.buying_price}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{salereport.selling_price}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+            <!-- <td><b ng-if="!e">{{salereport.quantity_sold_amount}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td>  -->
+			
+			<!-- <td><b ng-if="!e">{{salereport.sale_profit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{salereport.new_amount_sold}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td>  -->
+			
+			<!-- <td><b ng-if="!e">{{salereport.new_total_sold_amount}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{salereport.new_amount_profit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{salereport.date_sold}}&nbsp;&nbsp;{{salereport.time_sold}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{salereport.name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{salereport.facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+        <!-- </tr> -->
+		<!-- <tr align="center"> -->
+			<!-- <td colspan="8" align="center"> -->
+                <!-- <h3><b> -->
+				<!-- TOTAL SALES AND PROFIT IS -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ calcTotalSales(sales_report) }}/= -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_profit(sales_report) }}/= -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ new_total_sale(sales_report) }}/= -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ new_total_profit(sales_report) }}/= -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			
+			<!-- <td colspan="3"> -->
+                <!-- <h3> -->
+<!-- <button class="btn btn-primary" ng-click="viewsalereport(sales_report)"> PREVIEW YOUR SALE PRINT OUT REPORT</button> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+		<!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- <!--End of Comment for sales report --> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- <!--End of Tab 1--> -->
+<!-- <!--Start of Tab 2--> -->
+
+<!-- <div class="row"> -->
+<!-- <div ng-show="isSet(2)"> -->
+
+<!-- <div class="col-md-12"> -->
+<!-- <div class="col-md-3"> -->
+<!-- <input type="text" ng-model="dateselect.datefrom" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date From" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-3"> -->
+<!-- <input type="text" ng-model="dateselect.dateto" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date to" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-3"> -->
+<!-- <div class="input-group"> -->
+<!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="SEARCH EMPLOYEE BY NAME" ng-model="dateselect.id" uib-typeahead="employeesales as employeesales.name for employeesales in showEmployee($viewValue) | filter:$viewValue | limitTo:3"> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="col-md-3"> -->
+<!-- <button type="submit" class="btn btn-primary btn-success" ng-click="getemployeesales(dateselect)">SUBMIT</button> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <!--Start of Comment for sales report --> -->
+<!-- <div class="col-md-12" ng-if="employee_sales.length == 0"> -->
+<!-- <div class="panel panel-primary" align="center"> -->
+<!-- <br><b>NO REPORT FOUND FROM: &nbsp;{{dateselect.datefrom}} TO: &nbsp;{{dateselect.dateto}} &nbsp;FOR:&nbsp;{{dateselect.id.name}}</b> -->
+<!-- </div></div> -->
+
+<!-- <div class="col-md-12" ng-if="employee_sales.length > 0"> -->
+<!-- <div class="panel panel-primary"> -->
+    <!-- <table class="table table-bordered table-striped"> -->
+<!-- <p><h2 align="center"><b>DETAILED SALES REPORT &nbsp;&nbsp;FROM:&nbsp;{{dateselect.datefrom}}  &nbsp;&nbsp;TO:&nbsp;{{dateselect.dateto}} &nbsp;&nbsp;FOR:&nbsp;{{dateselect.id.name}}</b></h2></p> -->
+
+        <!-- <thead> -->
+        <!-- <tr align="center"> -->
+            <!-- <td class="text-navy">NO#</td> -->
+            <!-- <td class="text-navy">ITEM NAME</td> -->
+            <!-- <td class="text-navy">UNIT</td> -->
+            <!-- <td class="text-navy">BATCH</td> -->
+            <!-- <td class="text-navy">DEPARTMENT</td> -->
+            <!-- <td class="text-navy">QUANTITY SOLD</td> -->
+            <!-- <td class="text-navy">BUYING PRICE@</td> -->
+            <!-- <td class="text-navy">SELLING PRICE@</td> -->
+            <!-- <td class="text-navy">TOTAL SALE</td> -->
+            <!-- <td class="text-navy">TOTAL PROFIT</td> -->
+            <!-- <td class="text-navy">DATE AND TIME SOLD</td> -->
+            <!-- <td class="text-navy">SOLD BY</td> -->
+            <!-- <td class="text-navy">FACILITY</td> -->
+
+        <!-- </tr> -->
+        <!-- </thead> -->
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="employeesales in employee_sales" align="center"> -->
+
+            <!-- <td><b ng-if="!e">{{$index + 1}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.equipment_name"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{employeesales.item_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{employeesales.unit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{employeesales.batch_id}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{employeesales.department_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{employeesales.quantity_sold}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{employeesales.buying_price}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{employeesales.selling_price}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+            <!-- <td><b ng-if="!e">{{employeesales.quantity_sold_amount}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td>  -->
+			
+			<!-- <td><b ng-if="!e">{{employeesales.sale_profit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{employeesales.date_sold}}&nbsp;&nbsp;{{employeesales.time_sold}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{employeesales.name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{employeesales.facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+        <!-- </tr> -->
+		<!-- <tr align="center"> -->
+			<!-- <td colspan="8" align="center"> -->
+                <!-- <h3><b> -->
+				<!-- TOTAL SALES AND PROFIT IS -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <!-- -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_buyingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_sellingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- --> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ calcEmployee_sales(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_profit(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			
+			<!-- <td colspan="3"> -->
+                <!-- <h3> -->
+				 <!-- <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> PRINT YOUR SALES</button> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+		<!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="row"> -->
+<!-- <div ng-show="isSet(3)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- STOCK REPORT  &nbsp;&nbsp;  -->
+
+
+<!-- <div class="col-md-12"> -->
+<!-- <div class="col-md-3"> -->
+<!-- <input type="text" ng-model="batchreport.datefrom" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date From" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-3"> -->
+<!-- <input type="text" ng-model="batchreport.dateto" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date to" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-3"> -->
+<!-- <div class="input-group"> -->
+<!-- <select ng-model="batchreport.batch.id" class="form-control" data-toggle="tooltip" title="Select Batch Number"> -->
+<!-- <option disabled selected value>Select Batch Number</option> -->
+<!-- <option ng-value="batch.id" ng-repeat="batch in batches">{{batch.batch_name}}</option> -->
+<!-- </select> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="col-md-3"> -->
+<!-- <div class="input-group"> -->
+<!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="SEARCH ITEM THAT YOU WANT TO SALE" ng-model="batchreport.item_id" uib-typeahead="item_report as item_report.item_name for item_report in showreport($viewValue) | filter:$viewValue | limitTo:3"> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="col-md-3"> -->
+<!-- <button type="submit" class="btn btn-primary btn-success" ng-click="getbatchreport(batchreport)">SUBMIT</button> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <!--Start of Comment for sales report --> -->
+<!-- <div class="col-md-12" ng-if="report_per_item.length == 0"> -->
+<!-- <div class="panel panel-primary" align="center"> -->
+<!-- <br><b>NO REPORT FOUND FROM: &nbsp;{{batchreport.datefrom}} TO: &nbsp;{{batchreport.dateto}} </b> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="col-md-12" ng-if="report_per_item.length > 0"> -->
+<!-- <div class="panel panel-primary"> -->
+    <!-- <table class="table table-bordered table-striped"> -->
+<!-- <p><h2 align="center"><b>DETAILED ITEM SALES REPORT &nbsp;&nbsp;FROM:&nbsp;{{batchreport.datefrom}}  &nbsp;&nbsp;TO:&nbsp;{{batchreport.dateto}} </b></h2></p> -->
+
+        <!-- <thead> -->
+        <!-- <tr align="center"> -->
+            <!-- <td class="text-navy">NO#</td> -->
+            <!-- <td class="text-navy">ITEM NAME</td> -->
+            <!-- <td class="text-navy">BATCH</td> -->
+            <!-- <td class="text-navy">AMOUNT SOLD</td> -->
+			<!-- <td class="text-navy">SELLING PRICE TOTAL</td> -->
+            <!-- <td class="text-navy">SALES PROFIT</td> -->
+			<!-- <td class="text-navy">DEPARTMENT</td> -->
+            <!-- <td class="text-navy">SOLD DATE AND TIME</td> -->
+			<!-- <td class="text-navy">SOLD BY</td> -->
+            <!-- <td class="text-navy">FACILITY</td> -->
+			
+
+        <!-- </tr> -->
+        <!-- </thead> -->
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="reportperitem in report_per_item" align="center"> -->
+
+            <!-- <td><b ng-if="!e">{{$index + 1}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.equipment_name"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{reportperitem.tbl_items_item_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{reportperitem.tbl_batches_batch_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{reportperitem.tb_sales_quantity_sold}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{reportperitem.tb_sales_quantity_sold_amount}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.tb_sales_sale_profit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.tbl_department_department_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.tb_sales_date_sold}} && {{reportperitem.tb_sales_time_sold}} </b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.user_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.tbl_facilities_facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+        <!-- </tr> -->
+		<!-- <tr align="center"> -->
+			<!-- <td colspan="6" align="center"> -->
+                <!-- <h3><b> -->
+				<!-- TOTAL SALES AND PROFIT IS -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <!-- -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_buyingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_sellingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- --> -->
+			<!-- <td> -->
+            <!-- </td> -->
+			
+			<!-- <td> -->
+                
+            <!-- </td> -->
+			
+			<!-- <td colspan="3"> -->
+                <!-- <h3> -->
+				 <!-- <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> PRINT YOUR SALES</button> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+		<!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="row"> -->
+<!-- <div ng-show="isSet(4)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- OUT OF STOCK REPORT -->
+
+<!-- <div class="col-md-12" ng-if="outofstock.length > 0"> -->
+<!-- <div class="panel panel-primary"> -->
+    <!-- <table class="table table-bordered table-striped"> -->
+<!-- <p><h2 align="center"><b>ITEM OUT OF STOCK REPORT&nbsp;{{outofstocks.facility_name}}</b></h2></p> -->
+
+        <!-- <thead> -->
+        <!-- <tr align="center"> -->
+            <!-- <td class="text-navy">NO#</td> -->
+            <!-- <td class="text-navy">ITEM NAME</td> -->
+            <!-- <td class="text-navy">UNIT</td> -->
+            <!-- <td class="text-navy">BATCH</td> -->
+            <!-- <td class="text-navy">DEPARTMENT</td> -->
+            <!-- <td class="text-navy">QUANTITY AVAILABLE</td> -->
+            <!-- <td class="text-navy">REORDER LEVEL</td> -->
+            <!-- <td class="text-navy">REGISTERED</td> -->
+            <!-- <td class="text-navy">FACILITY</td> -->
+
+        <!-- </tr> -->
+        <!-- </thead> -->
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="outofstocks in outofstock" align="center"> -->
+			
+            <!-- <td><b ng-if="!e">{{$index + 1}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.equipment_name"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{outofstocks.item_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{outofstocks.unit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{outofstocks.batch_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{outofstocks.department_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			
+			
+			<!-- <td><b ng-if="!e">{{outofstocks.quantity}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+            <!-- <td><b ng-if="!e">{{outofstocks.reorder_level}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{outofstocks.created_at}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+            <!-- <td><b ng-if="!e">{{outofstocks.facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+        <!-- </tr> -->
+		<!-- <tr align="center"> -->
+			<!-- <td colspan="8" align="center"> -->
+            <!-- </td> -->
+			
+			<!-- <td> -->
+                <!-- <h3> -->
+				 <!-- <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> PRINT YOUR SALES</button> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+		<!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="row"> -->
+<!-- <div ng-show="isSet(5)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- STOCK REPORT  &nbsp;&nbsp;  -->
+
+
+<!-- <div class="col-md-12"> -->
+<!-- <div class="col-md-3"> -->
+<!-- <input type="text" ng-model="batchreport.datefrom" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date From" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-3"> -->
+<!-- <input type="text" ng-model="batchreport.dateto" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date to" id=""> -->
+<!-- </div> -->
+<!-- <div class="col-md-3"> -->
+<!-- <div class="input-group"> -->
+<!-- <select ng-model="batchreport.batch.id" class="form-control" data-toggle="tooltip" title="Select Batch Number"> -->
+<!-- <option disabled selected value>Select Batch Number</option> -->
+<!-- <option ng-value="batch.id" ng-repeat="batch in batches">{{batch.batch_name}}</option> -->
+<!-- </select> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="col-md-3"> -->
+<!-- <div class="input-group"> -->
+<!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="SEARCH ITEM THAT YOU WANT TO SALE" ng-model="batchreport.item_id" uib-typeahead="item_report as item_report.item_name for item_report in showreport($viewValue) | filter:$viewValue | limitTo:3"> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="col-md-3"> -->
+<!-- <button type="submit" class="btn btn-primary btn-success" ng-click="getbatchreport(batchreport)">SUBMIT</button> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <!--Start of Comment for sales report --> -->
+<!-- <div class="col-md-12" ng-if="report_per_item.length == 0"> -->
+<!-- <div class="panel panel-primary" align="center"> -->
+<!-- <br><b>NO REPORT FOUND FROM: &nbsp;{{batchreport.datefrom}} TO: &nbsp;{{batchreport.dateto}} </b> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="col-md-12" ng-if="report_per_item.length > 0"> -->
+<!-- <div class="panel panel-primary"> -->
+    <!-- <table class="table table-bordered table-striped"> -->
+<!-- <p><h2 align="center"><b>DETAILED ITEM SALES REPORT &nbsp;&nbsp;FROM:&nbsp;{{batchreport.datefrom}}  &nbsp;&nbsp;TO:&nbsp;{{batchreport.dateto}} </b></h2></p> -->
+
+        <!-- <thead> -->
+        <!-- <tr ng-repeat="reportperitem in report_per_item" align="center"> -->
+            <!-- <td class="text-navy">NO#</td> -->
+            <!-- <td class="text-navy">ITEM NAME</td> -->
+            <!-- <td class="text-navy">BATCH</td> -->
+            <!-- <td class="text-navy">{{reportperitem.tb_sales_quantity_sold}}</td> -->
+			<!-- <td class="text-navy">SELLING PRICE TOTAL</td> -->
+            <!-- <td class="text-navy">SALES PROFIT</td> -->
+			<!-- <td class="text-navy">DEPARTMENT</td> -->
+            <!-- <td class="text-navy">{{reportperitem.tb_sales_date_sold}} && {{reportperitem.tb_sales_time_sold}}</td> -->
+			<!-- <td class="text-navy">SOLD BY</td> -->
+            <!-- <td class="text-navy">FACILITY</td> -->
+        <!-- </tr> -->
+        <!-- </thead> -->
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="reportperitem in report_per_item" align="center"> -->
+
+            <!-- <td><b ng-if="!e">{{$index + 1}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.equipment_name"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{reportperitem.tbl_items_item_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{reportperitem.tbl_batches_batch_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{reportperitem.tb_sales_quantity_sold}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{reportperitem.tb_sales_quantity_sold_amount}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.tb_sales_sale_profit}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.tbl_department_department_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.tb_sales_date_sold}} && {{reportperitem.tb_sales_time_sold}} </b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.user_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+			<!-- <td><b ng-if="!e">{{reportperitem.tbl_facilities_facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			
+        <!-- </tr> -->
+		<!-- <tr align="center"> -->
+			<!-- <td colspan="6" align="center"> -->
+                <!-- <h3><b> -->
+				<!-- TOTAL SALES AND PROFIT IS -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <!-- -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_buyingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+                <!-- <h3><b> -->
+                    <!-- {{ total_sellingprice(employee_sales) }}/= Tsh. -->
+                <!-- </b></h3> -->
+            <!-- </td> -->
+			<!-- --> -->
+			<!-- <td> -->
+            <!-- </td> -->
+			
+			<!-- <td> -->
+                
+            <!-- </td> -->
+			
+			<!-- <td colspan="3"> -->
+                <!-- <h3> -->
+				 <!-- <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> PRINT YOUR SALES</button> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+		<!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+	
+	<!-- <table> -->
+	<!-- <thead> -->
+	<!-- <tr> -->
+	<!-- <td ng-repeat="c in headersData"> -->
+	<!-- {{c}} -->
+	<!-- </td> -->
+	<!-- </tr> -->
+	<!-- </thead> -->
+	<!-- <tbody> -->
+	<!-- <tr ng-repeat="c in columnData"> -->
+	<!-- <td>{{c.id}}</td> -->
+	<!-- <td>{{c.code}}</td> -->
+	<!-- <td>{{c.description}}</td> -->
+	<!-- </tr> -->
+	<!-- </tbody> -->
+	<!-- </table> -->
+
+<!-- </div> -->
+<!-- </div> -->
+
+
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+
+<!-- </div> -->
+
+<!-- </div> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->

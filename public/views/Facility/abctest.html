@@ -1,0 +1,219 @@
+
+<!-- <div class="wrapper wrapper-content animated fadeInRight" ng-controller="FacilityController"> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-md-12 form-box"> -->
+<!-- <form  role="form" class="mortuary-form" action="javascript:void(0);"> -->
+<!-- <fieldset> -->
+<!-- <div class="form-top"> -->
+<!-- <div class="form-top-left"> -->
+<!-- <h4><span></span>FACILITY AND USER MANAGEMENT DASHBOARD</h4> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="form-bottom"> -->
+<!-- <div class="row hidden-print"> -->
+<!-- <ul class="nav nav-tabs nav-justified" > -->
+<!-- <li ng-class="{active: isSet(1) }" ng-click="get_facility()"> -->
+<!-- <a href ng-click="setTab(1)"><span>FACILITY MANAGEMENT</span></a></li> -->
+<!-- <li ng-class="{active: isSet(2) }"  ng-click="get_facilityusers()"> -->
+<!-- <a href ng-click="setTab(2)">USER MANAGEMENT</a></li> -->
+<!-- </ul> -->
+<!-- </div> -->
+
+<!-- <div class="row"> -->
+<!-- <div ng-show="isSet(1)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="panel panel-primary"> -->
+<!-- <div class="panel-body"> -->
+
+  <!-- <table class="table table-bordered table-striped"> -->
+        <!-- <thead> -->
+        <!-- <tr> -->
+            <!-- <td class="text-navy">No#</td> -->
+            <!-- <td class="text-navy">Facility Name</td> -->
+            <!-- <td class="text-navy">Facility Type</td> -->
+            <!-- <td class="text-navy">Facility Address</td> -->
+            <!-- <td class="text-navy">Facility Email</td> -->
+            <!-- <td class="text-navy">Facility Mobile</td> -->
+            <!-- <td class="text-navy">Facility Council</td> -->
+            <!-- <td class="text-navy">Facility Region</td> -->
+            <!-- <td class="text-navy">Edit</td> -->
+            <!-- <td  ng-if="!e">X</td> -->
+        <!-- </tr> -->
+        <!-- </thead> -->
+
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="facilitydetail in facilitydetails | filter:search track by $index"> -->
+
+            <!-- <td><b>{{facilitydetail.userfacility_id}}</b> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{facilitydetail.facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b>{{facilitydetail.description}}</b> -->
+             
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{facilitydetail.address}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{facilitydetail.email}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{facilitydetail.mobile_number}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b>{{facilitydetail.council_name}}</b> -->
+            <!-- </td> -->
+
+            <!-- <td><b>{{facilitydetail.region_name}}</b> -->
+            <!-- </td> -->
+
+            <!-- <td ng-if="e"> -->
+                <!-- <h3 > -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="equipement_update(equipment)">Update</button> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+                <!-- <!--<button class="btn btn-default" ng-click="edit(region.id)">Edit</button>--> -->
+            <!-- </td> -->
+
+            <!-- <td> -->
+                <!-- <input type="checkbox" class="btn btn-info" ng-model="e">Edit -->
+            <!-- </td> -->
+            <!-- <td  ng-if="!e"> -->
+                <!-- <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="equipement_delete(equipment)">Delete</button> -->
+            <!-- </td> -->
+            <!-- <!--<td>{{ region.tastiness }}</td>--> -->
+        <!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+
+
+<!-- </fieldset> -->
+<!-- </form> -->
+
+<!-- </div> -->
+
+
+<!-- <div ng-show="isSet(2)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="panel panel-primary"> -->
+<!-- <div class="panel-body"> -->
+
+ <!-- <table class="table table-bordered table-striped"> -->
+        <!-- <thead> -->
+        <!-- <tr> -->
+            <!-- <td class="text-navy">No#</td> -->
+            <!-- <td class="text-navy">Facility Name</td> -->
+            <!-- <td class="text-navy">Facility Type</td> -->
+            <!-- <td class="text-navy">Facility Address</td> -->
+            <!-- <td class="text-navy">Facility Email</td> -->
+            <!-- <td class="text-navy">Facility Mobile</td> -->
+            <!-- <td class="text-navy">Facility Council</td> -->
+            <!-- <td class="text-navy">Facility Region</td> -->
+            <!-- <td class="text-navy">Edit</td> -->
+            <!-- <td  ng-if="!e">X</td> -->
+        <!-- </tr> -->
+        <!-- </thead> -->
+
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="facilitydetail in facilitydetails | filter:search track by $index"> -->
+
+            <!-- <td><b>{{facilitydetail.userfacility_id}}</b> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{facilitydetail.facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b>{{facilitydetail.description}}</b> -->
+             
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{facilitydetail.address}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{facilitydetail.email}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{facilitydetail.mobile_number}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b>{{facilitydetail.council_name}}</b> -->
+            <!-- </td> -->
+
+            <!-- <td><b>{{facilitydetail.region_name}}</b> -->
+            <!-- </td> -->
+
+            <!-- <td ng-if="e"> -->
+                <!-- <h3 > -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="equipement_update(equipment)">Update</button> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+                <!-- <!--<button class="btn btn-default" ng-click="edit(region.id)">Edit</button>--> -->
+            <!-- </td> -->
+
+            <!-- <td> -->
+                <!-- <input type="checkbox" class="btn btn-info" ng-model="e">Edit -->
+            <!-- </td> -->
+            <!-- <td  ng-if="!e"> -->
+                <!-- <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="equipement_delete(equipment)">Delete</button> -->
+            <!-- </td> -->
+            <!-- <!--<td>{{ region.tastiness }}</td>--> -->
+        <!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- </div> -->
+<!-- </div> -->

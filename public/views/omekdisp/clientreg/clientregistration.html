@@ -1,0 +1,93 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="clientregController">
+<div class="row">
+<div class="col-md-12 form-box">
+<form  role="form" class="mortuary-form" action="javascript:void(0);">
+<fieldset>
+
+<div class="">
+    <form class="">
+        <div class="form-group row">
+			<div class="col-xs-10">
+            <input type="text" ng-model="selectedclient" 
+			uib-typeahead="searchedclient as searchedclient.client_name for searchedclient in 
+			showClient($viewValue) | filter:$viewValue | limitTo:8" 
+			class="form-control input-lg" placeholder="SEARCH FOR CLIENT">
+			</div>
+			
+            <div class="form-group col-xs-2">
+                <button class="btn btn-lg btn-success" data-toggle="tooltip" ng-click="loadregistrationform()">
+                    <i class="fa fa-plus-square" aria-hidden="true"> Register Client</i>
+                </button>
+            </div>
+        </div>
+
+    </form>
+	<p><b ng-if="!e"> 
+	Name: {{selectedclient.client_name}} | 
+	Reg_No: {{selectedclient.client_registration_no}} | 
+	Gender: {{selectedclient.gender_name}} | 
+	Last Visit: {{selectedclient.updated_at}}
+	</b></p>
+</div>
+
+<div class="form-top">
+<div class="form-top-left">
+<h4><span></span>CLIENT REGISTRATION DASHBOARD</h4>
+
+</div>
+</div>
+<br>
+<div class="table">
+<table class="table table-bordered">
+
+<thead class="thead-blue">
+<tr align="center">
+<td class="text-dark"><b>NO</b></td>
+<td class="text-dark"><b>Name</b></td>
+<td class="text-dark"><b>Registration No</b></td>
+<td class="text-dark"><b>AGE</b></td>
+<td class="text-dark"><b>GENDER</b></td>
+<td class="text-dark"><b>MOBILE</b></td>
+<td class="text-dark"><b>OCCUPATION</b></td>
+<td class="text-dark"><b>RESIDENCE</b></td>
+<td class="text-dark"><b>REGISTRED BY</b></td>
+<td class="text-dark"><b>LAST VISIT</b></td>
+</tr>
+</thead>
+
+<tbody>
+<tr align="center" ng-repeat="listofregclient in getClientList">
+<!-- {{ getClientList }} -->
+<td>{{$index + 1}}</td>
+
+<td>{{ listofregclient.client_name }}</td>
+
+<td>{{ listofregclient.client_registration_no }}</td>
+
+<td>{{ listofregclient.client_age }}</td>
+
+<td>{{ listofregclient.gender_name }}</td>
+
+<td>{{ listofregclient.client_mobile }}</td>
+
+<td>{{ listofregclient.occupation_name}}</td>
+
+<td>{{ listofregclient.residence_name}}</td>
+
+<td>{{ listofregclient.name}}</td>
+
+<td>{{ listofregclient.updated_at}}</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+
+</fieldset>
+ </form>
+</div>
+</div>
+</div>

@@ -1,0 +1,424 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="itemmanageController">
+<div class="row">
+<div class="col-md-12 form-box">
+<form  role="form" class="mortuary-form" action="javascript:void(0);">
+<fieldset>
+
+<form  role="form" class="mortuary-form" action="javascript:void(0);">
+<fieldset>
+<div class="form-top">
+<div class="form-top-left">
+<h4><span></span>ITEM REGISTRATION MODULE</h4>
+
+</div>
+</div>
+<div class="form-bottom">
+<div class="row hidden-print">
+<ul class="nav nav-tabs nav-justified" >
+<li ng-class="{active: isSet(1) }">
+<a href ng-click="setTab(1)"><span>REGISTER NEW ITEM </span></a></li>
+<li ng-class="{active: isSet(2) }"  ng-click="getitemregistered()">
+<a href ng-click="setTab(2)">VIEW NEW REGISTERED ITEM</a></li>
+<br>
+<br>
+</div>
+
+<div class="row">
+
+<div ng-show="isSet(1)">
+<div class="col-md-12">
+<div class="panel panel-primary">
+<div class="form-top">ITEM REGISTRATION FORM</div><br>
+<div class="panel-body">
+
+<div class="row">
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Name</label>
+<input type="text"  class="form-control reg" ng-model="item.name" placeholder="Enter Item Name">
+</div>
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Type</label>
+<select 
+placeholder="Select Item Type"
+class="form-control"
+ng-model="item.item_type" 
+ng-click="get_item_type()"
+data-toggle="tooltip">
+
+<option disabled selected value>Select Item Type</option>
+<option ng-value="item_type.id" ng-repeat="item_type in item_types">{{item_type.item_type}}</option>
+</select>
+</div>
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Category</label>
+<select 
+ng-model="item.category" 
+class="form-control" 
+data-toggle="tooltip" 
+title="Select Equipment Status"
+ng-click="get_item_category()">
+<option disabled selected value>Select Item Category</option>
+<option ng-value="category.id" ng-repeat="category in categories">{{category.item_category}}</option>
+</select>
+</div>
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Department</label>
+<select 
+ng-model="item.department" 
+class="form-control" 
+data-toggle="tooltip" 
+title="Select Equipment Status"
+ng-click="get_item_department()">
+<option disabled selected value>Select Item Department</option>
+<option ng-value="department.id" ng-repeat="department in departments">{{department.item_department}}</option>
+</select>
+</div>
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Unit</label>
+<select 
+ng-model="item.unit" 
+class="form-control" 
+data-toggle="tooltip" 
+title="Select Equipment Status"
+ng-click="get_item_unit()">
+<option disabled selected value>Select Item Unit</option>
+<option ng-value="unit.id" ng-repeat="unit in units">{{unit.item_units}}</option>
+</select>
+</div>
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Batch</label>
+<select 
+ng-model="item.batche" 
+class="form-control" 
+data-toggle="tooltip" 
+title="Select Equipment Status"
+ng-click="get_item_batch()">
+<option disabled selected value>Select Item Batch</option>
+<option ng-value="batche.id" ng-repeat="batche in batches">{{batche.item_batch}}</option>
+</select>
+</div>
+
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Status</label>
+<select 
+ng-model="item.status" 
+class="form-control" 
+data-toggle="tooltip" 
+title="Select Equipment Status"
+ng-click="get_item_status()">
+<option disabled selected value>Select Item Status</option>
+<option ng-value="status.id" ng-repeat="status in statuses">{{status.status_name}}</option>
+</select>
+</div>
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Buying Price</label>
+<input type="number" 
+class="form-control reg" 
+ng-model="item.buyingprice" 
+placeholder="Enter Buying Price">
+</div>
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Selling Price</label>
+<input type="number" 
+class="form-control reg" 
+ng-model="item.sellingprice" 
+placeholder="Enter Selling Price">
+</div>
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Quantity</label>
+<input type="number"
+class="form-control reg" 
+ng-model="item.quantity" 
+placeholder="Enter Item Quantity">
+</div>
+
+<div class="form-group col-md-2 col-sm-2">
+<label>Item Reorder Level</label>
+<input type="number"  
+class="form-control reg" 
+ng-model="item.reorder" 
+placeholder="Enter Item Buying Price">
+</div>
+
+</div>
+
+<BR>
+<p align="right">
+<button type="submit" class="btn btn-success" ng-click="saveitem(item)">CLICK TO SAVE</button>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div ng-show="isSet(2)">
+<div class="col-md-12">
+<div class="panel panel-primary">
+<table class="table table-bordered table-striped">
+<b>REGISTERED ITEMS:</b>
+
+<thead>
+<tr>
+<td class="text-navy">No#</td>
+<td class="text-navy">Item Name</td>
+<td class="text-navy">Item Type</td>
+<td class="text-navy">Item Category</td>
+<td class="text-navy">Unit</td>
+<td class="text-navy">Department</td>
+<td class="text-navy">Itema Batch</td>
+<td class="text-navy">Quantity</td>
+<td class="text-navy">Buying Price</td>
+<td class="text-navy">Selling Price</td>
+<td class="text-navy">Reorder Level</td>
+<td class="text-navy">Purchase Date</td>
+<td class="text-navy">Purchase Time</td>
+<td class="text-navy">Status</td>
+<td class="text-navy">Facility</td>
+</tr>
+</thead>
+
+<tbody>
+<tr ng-repeat="itemregister in item_registered">
+
+<td>{{$index + 1}}</b>
+</td>
+
+<td><b>{{itemregister.item_name}}</b>
+</td>
+
+<td><b>{{itemregister.item_type}}</b>
+</td>
+
+<td><b>{{itemregister.item_category}}</b>
+</td>
+
+<td><b>{{itemregister.item_units}}</b>
+</td>
+
+<td><b>{{itemregister.item_department}}</b>
+</td>
+
+<td><b>{{itemregister.item_batch}}</b>
+</td>
+
+<td><b>{{itemregister.item_quantity_bought}}</b>
+</td>
+
+<td><b>{{itemregister.item_buyingprice_new}}</b>
+</td>
+
+<td><b>{{itemregister.item_sellingprice_new}}</b>
+</td>
+
+<td><b>{{itemregister.item_reorder}}</b>
+</td>
+
+<td><b>{{itemregister.item_date_bought}}</b>
+</td>
+
+<td><b>{{itemregister.item_time_bought}}</b>
+</td>
+
+<td><b>{{itemregister.status_name}}</b>
+</td>
+
+<td><b>{{itemregister.facility_name}}</b>
+</td>
+
+</tr>
+</tbody>
+
+</table>
+
+
+</div>
+</div>
+</div>
+
+<div ng-show="isSet(3)">
+<div class="col-md-12">
+<div class="panel panel-primary">
+<table class="table table-bordered table-striped">
+<b>REGISTERED ITEMS:</b>
+
+<thead>
+<tr>
+<td class="text-navy">No#</td>
+<td class="text-navy">Item Name</td>
+<td class="text-navy">Item Category</td>
+<td class="text-navy">Unit</td>
+<td class="text-navy">Department</td>
+<td class="text-navy">Quantity</td>
+<td class="text-navy">Buying Price</td>
+<td class="text-navy">Selling Price</td>
+<td class="text-navy">Reorder Level</td>
+<td class="text-navy">Facility</td>
+<td class="text-navy">Edit</td>
+<td  ng-if="!e">X</td>
+</tr>
+</thead>
+
+
+</table>
+
+
+</div>
+</div>
+</div>
+
+
+<div ng-show="isSet(4)">
+<div class="col-md-12">
+<div class="panel panel-primary">
+<table class="table table-bordered table-striped">
+<b>REGISTERED ITEMS:</b>
+
+<thead>
+<tr>
+<td class="text-navy">No#</td>
+<td class="text-navy">Item Name</td>
+<td class="text-navy">Item Category</td>
+<td class="text-navy">Unit</td>
+<td class="text-navy">Department</td>
+<td class="text-navy">Quantity</td>
+<td class="text-navy">Buying Price</td>
+<td class="text-navy">Selling Price</td>
+<td class="text-navy">Reorder Level</td>
+<td class="text-navy">Facility</td>
+<td class="text-navy">Edit</td>
+<td  ng-if="!e">X</td>
+</tr>
+</thead>
+
+<tbody>
+<tr ng-repeat="newitemregister in newitemregistered">
+
+<td><b ng-if="!e">{{$index + 1}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.equipment_name">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.item_name}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.itemtyp}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit">
+</div>
+</h3>
+</td>
+<td><b ng-if="!e">{{newitemregister.unit}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.department_name}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit">
+</div>
+</h3>
+</td>
+<td><b ng-if="!e">{{newitemregister.quantity_bought}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.buying_price_new}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Item Unit" ng-model="equipment.item_unit" uib-typeahead="item_units as item_units.unit for item_units in showItemtest($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.selling_price_new}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.reorder_level}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+<td><b ng-if="!e">{{newitemregister.facility_name}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+
+<td ng-if="e">
+<h3 >
+<div class="form-group">
+<button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="equipement_update(equipment)">Update</button>
+</div>
+</h3>
+<!--<button class="btn btn-default" ng-click="edit(region.id)">Edit</button>-->
+</td>
+
+<td>
+<input type="checkbox" class="btn btn-info" ng-model="e">Edit
+</td>
+<td  ng-if="!e">
+<button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="equipement_delete(equipment)">Delete</button>
+</td>
+<!--<td>{{ region.tastiness }}</td>-->
+</tr>
+</tbody>
+
+</table>
+
+
+</div>
+</div>
+</div>
+
+
+
+</fieldset>
+</form>
+
+</div>
+</div>
+
+
+
+</fieldset>
+ </form>
+</div>
+</div>
+</div>

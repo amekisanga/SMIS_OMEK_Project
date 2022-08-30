@@ -1,0 +1,307 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="itemmanageController">
+<div class="row">
+<div class="col-md-12 form-box">
+<form  role="form" class="mortuary-form" action="javascript:void(0);">
+<fieldset>
+
+<form  role="form" class="mortuary-form" action="javascript:void(0);">
+<fieldset>
+<div class="form-top">
+<div class="form-top-left">
+<h4><span></span>ITEM UPDATE MODULE</h4>
+
+</div>
+</div>
+<div class="form-bottom">
+<div class="row hidden-print">
+<ul class="nav nav-tabs nav-justified" >
+<li ng-class="{active: isSet(1) }">
+<a href ng-click="setTab(1)"><span>UPDATE ITEM</span></a></li>
+<li ng-class="{active: isSet(2) }"  ng-click="getnewitemregistered()">
+<a href ng-click="setTab(2)">VIEW UPDATED ITEM</a></li>
+</ul>
+<br>
+<br>
+</div>
+
+<div class="row">
+
+<div ng-show="isSet(1)">
+<div class="col-md-12">
+<div class="panel panel-primary">
+<table class="table table-bordered table-striped">
+<!-- <b>ITEMS TO UPDATED:</b><br> -->
+<div class="col-xs-12">
+<input type="text" ng-model="searcheditem" 
+uib-typeahead="searcheditem as searcheditem.item_name for searcheditem in 
+showItemtoUpdates($viewValue) | filter:$viewValue | limitTo:8" 
+class="form-control input-lg" placeholder="SEARCH FOR ITEM THAT YOU NEED TO UPDATE">
+
+
+</div>
+<br>
+<br>
+<br>
+<thead>
+<tr>
+<td class="text-navy">No#</td>
+<td class="text-navy">Name</td>
+<td class="text-navy">Available Quantity</td>
+<td class="text-navy">Current Item Buying Price</td>
+<td class="text-navy">Current Selling Price</td>
+<!-- <td class="text-navy">Category</td>
+<td class="text-navy">Unit</td>
+<td class="text-navy">Department</td>
+<td class="text-navy">Batch</td>
+<td class="text-navy">Quantity</td>
+<td class="text-navy">Buying Price</td>
+<td class="text-navy">Selling Price</td>
+<td class="text-navy">Reorder Level</td>
+<td class="text-navy">Facility</td> -->
+<td class="text-navy">Edit</td>
+<td  ng-if="!e">X</td>
+</tr>
+</thead>
+
+<tbody>
+
+<tr ng-repeat="itemtobeupdated in item_toupdate">
+
+<td><b>{{$index + 1}}</b>
+</td>
+
+<td><b>{{itemtobeupdated.item_name}}</b>
+</td>
+
+<td><b ng-if="!e">{{itemtobeupdated.item_quantity_bought}}</b>
+    <h3>
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter New Bought Quantity" ng-model="$parent.updateitem.newboughtquantity">
+        </div>
+    </h3>
+</td>
+
+<td><b ng-if="!e">{{itemtobeupdated.item_buyingprice_new}}</b>
+    <h3>
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter New Item Buying Price (If Necessary)" ng-model="$parent.updateitem.newsbuyingprice">
+        </div>
+    </h3>
+</td>
+
+<td><b ng-if="!e">{{itemtobeupdated.item_sellingprice_new}}</b>
+    <h3>
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter New Selling Price (If Necessary)" ng-model="$parent.updateitem.newsellingprice">
+        </div>
+    </h3>
+</td>
+
+<!-- <td><b ng-if="!e">{{itemtobeupdated.item_type}}</b>
+    <h3 ng-if="e">
+    <div class="form-group">
+    <select 
+    ng-model="updateitem.itemtype" 
+    class="form-control" 
+    data-toggle="tooltip" 
+    title="Select Item Type"
+    ng-click="get_item_type()">
+    <option disabled selected value>Select New Item Type</option>
+    <option ng-value="getitemtype.id" ng-repeat="getitemtype in get_item_type">{{getitemtype.item_type}}</option>
+    </select>
+    </div>
+    </h3>
+</td>
+
+<td><b ng-if="!e">{{itemtobeupdated.item_units}}</b>
+    <h3 ng-if="e">
+    <div class="form-group">
+    <select 
+    ng-model="newitem.category" 
+    class="form-control" 
+    data-toggle="tooltip" 
+    title="Select Equipment Status"
+    ng-click="get_item_category()">
+    <option disabled selected value>Select New Item Category</option>
+    <option ng-value="category.id" ng-repeat="category in categories">{{category.item_category}}</option>
+    </select>
+    </div>
+    </h3>
+</td> -->
+
+
+
+<td>
+    <h3 >
+    <div class="form-group">
+    <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" 
+    ng-click="update_item(itemtobeupdated, updateitem)">Update</button>
+    </div>
+    </h3>
+</td>
+
+<!-- <td>
+    <input type="checkbox" class="btn btn-info" ng-model="e">Edit
+</td> -->
+    
+<td>
+    <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="equipement_delete(itemtobeupdated)">Delete</button>
+</td>
+
+
+
+</tr>
+</tbody>
+
+</table>
+
+
+</div>
+</div>
+</div>
+
+
+<div ng-show="isSet(2)">
+<div class="col-md-12">
+<div class="panel panel-primary">
+<table class="table table-bordered table-striped">
+<b>REGISTERED ITEMS:</b>
+
+<thead>
+<tr>
+<td class="text-navy">No#</td>
+<td class="text-navy">Item Name</td>
+<td class="text-navy">Item Category</td>
+<td class="text-navy">Unit</td>
+<td class="text-navy">Department</td>
+<td class="text-navy">Quantity</td>
+<td class="text-navy">Buying Price</td>
+<td class="text-navy">Selling Price</td>
+<td class="text-navy">Reorder Level</td>
+<td class="text-navy">Facility</td>
+<td class="text-navy">Edit</td>
+<td  ng-if="!e">X</td>
+</tr>
+</thead>
+
+<tbody>
+<tr ng-repeat="newitemregister in newitemregistered">
+
+<td><b ng-if="!e">{{$index + 1}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.equipment_name">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.item_name}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.itemtyp}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit">
+</div>
+</h3>
+</td>
+<td><b ng-if="!e">{{newitemregister.unit}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.department_name}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit">
+</div>
+</h3>
+</td>
+<td><b ng-if="!e">{{newitemregister.quantity_bought}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.buying_price_new}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Item Unit" ng-model="equipment.item_unit" uib-typeahead="item_units as item_units.unit for item_units in showItemtest($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.selling_price_new}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Equipment Status" ng-model="equipment.eqstatus" uib-typeahead="eqstatus as eqstatus.status_name for eqstatus in showEqstatus($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+
+<td><b ng-if="!e">{{newitemregister.reorder_level}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+<td><b ng-if="!e">{{newitemregister.facility_name}}</b>
+<h3 ng-if="e">
+<div class="form-group">
+<input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3">
+</div>
+</h3>
+</td>
+
+<td ng-if="e">
+<h3 >
+<div class="form-group">
+<button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="equipement_update(equipment)">Update</button>
+</div>
+</h3>
+
+</td>
+
+<td>
+<input type="checkbox" class="btn btn-info" ng-model="e">Edit
+</td>
+<td  ng-if="!e">
+<button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="equipement_delete(equipment)">Delete</button>
+</td>
+
+</tr>
+</tbody>
+
+</table>
+
+
+</div>
+</div>
+</div>
+
+
+
+</fieldset>
+</form>
+
+</div>
+</div>
+
+
+
+</fieldset>
+ </form>
+</div>
+</div>
+</div>

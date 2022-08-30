@@ -1,0 +1,148 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="reportController">
+<div class="row">
+<div class="col-md-12 form-box">
+<!-- <form  role="form" class="mortuary-form" action="javascript:void(0);">
+<fieldset>
+
+<label> Report Two </label>
+
+</fieldset>
+ </form> -->
+
+<div class="form-top"> 
+<div class="form-top-left">
+<h4><span></span>CLIENT REPORT MODULE</h4>
+</div>
+</div>
+    
+<div class="form-bottom"> 
+    <div class="row hidden-print">
+    <ul class="nav nav-tabs nav-justified">
+    
+    <li ng-class="{active: isSet(1) }"><a href ng-click="setTab(1)"><span>NEW REGISTERED REPORT</span></a></li>
+    <!-- <li ng-class="{active: isSet(2) }"><a href ng-click="setTab(2)"><span>DETAILED SALES REPORT</span></a></li>
+    <li ng-class="{active: isSet(3) }"><a href ng-click="setTab(3)"><span>ITEM PURCHASED REPORT</span></a></li> -->
+
+    </ul>
+    <br>
+    </div>
+
+
+<div class="row">
+
+    <div ng-show="isSet(1)">
+        <div class="col-md-12">
+        <div class="col-md-4">
+        <input type="text" ng-model="cliselectedate.datefrom" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date From" id="">
+        </div>
+        <div class="col-md-4">
+        <input type="text" ng-model="cliselectedate.dateto" id="dob" datetime-picker date-only date-format='yyyy-MM-dd' class="form-control input-sm" placeholder="Select Date to" id="">
+        </div>
+        <div class="col-md-4">
+        <button type="submit" class="btn btn-primary btn-success" ng-click="clientregreport(cliselectedate)">SUBMIT</button>
+        <br>
+        <br>
+        </div>
+        </div>
+
+        <div class="col-md-12" ng-if="clientregi_report.length == 0">
+            <div class="panel panel-primary" align="center">
+            <b style="color:red"> NO REPORT FOUND FOR SUCH DATES</b>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+            <table class="table table-bordered table-striped">
+            <b>CLIENT REPORT PER DEPARTMENT AND SERVICE:</b>
+            
+            <thead>
+            <tr>
+            <td class="text-navy">No#</td>
+            <td class="text-navy">Client Name</td>
+            <td class="text-navy">Department</td>
+            <td class="text-navy">Item</td>
+            <td class="text-navy">Date Sold</td>
+            <td class="text-navy">Time Sold</td>
+            <td class="text-navy">Amount</td>
+            </tr>
+            </thead>
+            
+            <tbody>
+            <tr ng-repeat="clientregireport in clientregi_report">
+            
+            <td>{{$index + 1}}</b>
+            </td>
+            
+            <td><b>{{clientregireport.client_name}}</b>
+            </td>
+            
+            <td><b>{{clientregireport.item_department}}</b>
+            </td>
+            
+            <td><b>{{clientregireport.item_name}}</b>
+            </td>
+
+            <td><b>{{clientregireport.date_sold}}</b>
+            </td>
+
+            <td><b>{{clientregireport.time_sold}}</b>
+            </td>
+
+            <td><b>{{clientregireport.sale_amount_total}}</b>
+            </td>
+            
+            </tr>
+            <tr>
+                <td colspan="2" align="center">Total of Sum</td>
+                <td><h4>{{ getsumofTotal() }}</h4></td>
+                <td><h4>{{ getsumofprofit() }}</h4></td>
+                <td><h4></h4></td>
+                <td><h4></h4></td>
+                <td><h4>{{ getsumofamount() }}</h4></td>
+            </tr>
+
+            <tr>
+                <td colspan="7" align="right">
+                    <!-- <button type="submit" class="btn btn-primary btn-success" ng-click="downloadExcel(xlsx)">Download Excel</button> -->
+                    <!-- <a href="{{ URL::to('downloadExcel/xlsx') }}"><button >Download Excel xlsx</button></a> -->
+                    <!-- <a ng-click="downloadExcel($type)"><button >Download Excel xlsx</button></a> -->
+                    <!-- <div ng-init="value = 'https://www.w3schools.com'">
+                        <h1>Tutorials</h1>
+                        <p>Go to <a ng-href="{{myVar}}">{{myVar}}</a> to learn!</p>
+                    </div> -->
+                    <!-- <a href="downloadExcel/xlsx"><button class="btn btn-success">Download Excel XLSX</button></a> -->
+                    <a href="downloadExcel/xlsx" class="btn btn-danger">
+                        Download Excel
+                    </a>
+                </td>
+            </tr>
+            <!-- <tr>
+            
+                <td colspan="2" align="center"> <b> TOTAL SALES</b>
+               </td>
+                
+                <td>
+                    
+                </td>
+                
+                <td>hello
+                </td>
+                
+                </tr> -->
+        
+            </tbody>
+            
+            </table>
+            
+            
+            </div>
+            </div>
+
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>

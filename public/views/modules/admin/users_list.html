@@ -1,0 +1,272 @@
+
+
+ <div class="">
+    <form  >
+        <div class="input-group">
+            <input data-toggle="tooltip" title="Search.... " type="text" placeholder="Search......." name="search" ng-model='search' class="form-control input-lg">
+            <div class="input-group-btn">
+                <button class="btn btn-lg btn-success" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-md-12 form-box">
+            <form  role="form" class="registration-form" action="javascript:void(0);">
+                <fieldset>
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3><span><i class="fa fa-list" aria-hidden="true"></i></span>
+
+                                USERS LIST
+                                <div class="pull-right">
+                                    <span class="fa fa-hospital-o">  </span><sup class="badge badge-danger">{{users.length}}</sup>
+                                </div>
+                            </h3>
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <table class="table table-bordered table-striped"  >
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+
+                                 
+                            </div>
+                        </div>
+                        <thead>
+                        <tr>
+                            <td>
+
+                                No
+
+                            </td>
+
+                            <td>
+
+                                Name
+
+
+
+                            </td>
+                            <td>
+
+                                Email
+
+
+
+                            </td>
+                            <td>
+
+                                Phone Number
+
+
+
+                            </td>
+
+                            <td>Edit
+                            </td>
+                            <!--<td>-->
+
+                            <!--Profession-->
+
+
+
+                            <!--</td>-->
+
+                            <td>
+
+                              Delete
+
+                            </td>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="user in users | filter:search track by $index">
+                            <td>{{ $index+1 }}</td>
+
+                            <td><b ng-if="!e">{{ user.name }}</b>
+                                <h3 ng-if="e">
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="name" ng-model="user.name">
+                                    </div>
+
+
+                                </h3>
+                            </td>
+                            <td><b ng-if="!e">{{ user.email }}</b>
+                                <h3 ng-if="e">
+
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="email" ng-model="user.email">
+
+                                    </div>
+
+
+                                </h3>
+                            </td>
+                            <!--<td><b ng-if="!e">{{ user.proffesionals_id }}</b>-->
+                            <!--<h3 ng-if="e">-->
+
+                            <!--<div class="form-group">-->
+                            <!--<select ng-model="user.proffesionals_id" class="form-control">-->
+                            <!--<option ng-value="user.proffesionals_id">{{ user.professional }}</option>-->
+                            <!--<option ng-value="professional.id" ng-repeat="professional in professsionals">{{professional.prof_name}}</option>-->
+                            <!--</select>-->
+                            <!--</div>-->
+
+
+                            <!--</h3>-->
+                            <!--</td>-->
+                            <td><b ng-if="!e">{{ user.mobile_number }}</b>
+                                <h3 ng-if="e">
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="phone number" ng-model="user.mobile_number">
+
+                                    </div>
+
+
+                                </h3>
+                            </td>
+
+                            <td ng-if="e">
+                                <h3 >
+
+                                    <div class="form-group">
+
+
+                                        <button class="btn btn-success" ng-click="user_update(user)">Update</button>
+
+                                    </div>
+                                </h3>
+                                <!--<button class="btn btn-default" ng-click="edit(region.id)">Edit</button>-->
+
+
+
+
+                            </td>
+                            <td>
+                                <input type="checkbox" class="btn btn-info" ng-model="e">Edit
+                            </td><td  ng-if="!e">
+                            <button class="alert-danger" ng-click="user_delete(user.name,user.id)">Delete</button>
+                        </td>
+                            <!--<td>{{ region.tastiness }}</td>-->
+                        </tr>
+                        </tbody>
+
+                    </table>
+
+
+
+
+
+
+
+                    <!--FACILTY SETTING  ENDING-->
+
+        </div>
+        </fieldset>
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.registration-form fieldset:first-child').fadeIn('slow');
+
+        $('.registration-form input[type="text"]').on('focus', function () {
+            $(this).removeClass('input-error');
+        });
+
+        // next step
+        $('.registration-form .btn-next').on('click', function () {
+            var parent_fieldset = $(this).parents('fieldset');
+            var next_step = true;
+
+            parent_fieldset.find('input[type="text"],input[type="email"]').each(function () {
+                if ($(this).val() == "") {
+                    $(this).addClass('input-error');
+                    next_step = false;
+                } else {
+                    $(this).removeClass('input-error');
+                }
+            });
+
+            if (next_step) {
+                parent_fieldset.fadeOut(400, function () {
+                    $(this).next().fadeIn();
+                });
+            }
+
+        });
+
+        // previous step
+        $('.registration-form .btn-previous').on('click', function () {
+            $(this).parents('fieldset').fadeOut(400, function () {
+                $(this).prev().fadeIn();
+            });
+        });
+
+        // submit
+        $('.registration-form').on('submit', function (e) {
+
+            $(this).find('input[type="text"],input[type="email"]').each(function () {
+                if ($(this).val() == "") {
+                    e.preventDefault();
+                    $(this).addClass('input-error');
+                } else {
+                    $(this).removeClass('input-error');
+                }
+            });
+
+        });
+
+
+    });
+</script>
+
+
+
+
+        <!--facility setting starting-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--facility setting ending-->
+
+
+
+
+
+
+
+
+
+

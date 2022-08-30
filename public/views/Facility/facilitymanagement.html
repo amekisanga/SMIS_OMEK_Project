@@ -1,0 +1,491 @@
+<!-- <div class="wrapper wrapper-content animated fadeInRight" ng-controller="FacilityController"> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-md-12 form-box"> -->
+<!-- <form  role="form" class="mortuary-form" action="javascript:void(0);"> -->
+<!-- <fieldset> -->
+
+<!-- <div class="form-top"> -->
+<!-- <div class="form-top-left"> -->
+<!-- <h4><span></span>FACILITY AND USER MANAGEMENT DASHBOARD</h4> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="form-bottom"> -->
+
+<!-- <div class="row hidden-print"> -->
+<!-- <ul class="nav nav-tabs nav-justified" > -->
+<!-- <li ng-class="{active: isSet(1) }" ng-click="get_facilities()"> -->
+<!-- <a href ng-click="setTab(1)"><span>FACILITY MANAGEMENT</span></a></li> -->
+<!-- <li ng-class="{active: isSet(2) }"  ng-click="get_allfacilityusers()"> -->
+<!-- <a href ng-click="setTab(2)">USER MANAGEMENT</a></li> -->
+<!-- </ul> -->
+<!-- </div> -->
+
+<!-- <div class="row"> -->
+<!-- <div ng-show="isSet(1)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="panel panel-primary"> -->
+<!-- <div class="panel-body"> -->
+
+<!-- <table class="table table-bordered table-striped"> -->
+<!-- <thead> -->
+<!-- <tr> -->
+<!-- <td class="text-navy">No#</td> -->
+<!-- <td class="text-navy">Facility Name</td> -->
+<!-- <td class="text-navy">Facility Ownwer</td> -->
+<!-- <td class="text-navy">Facility Type</td> -->
+<!-- <td class="text-navy">Facility Address</td> -->
+<!-- <td class="text-navy">Facility Email</td> -->
+<!-- <td class="text-navy">Facility Mobile</td> -->
+<!-- <td class="text-navy">Facility Council</td> -->
+<!-- <td class="text-navy">Facility Region</td> -->
+<!-- <td class="text-navy">Edit</td> -->
+<!-- <td  ng-if="!e">X</td> -->
+<!-- </tr> -->
+<!-- </thead> -->
+
+<!-- <tbody> -->
+<!-- <tr ng-repeat="facilitydetail in getfacilities | filter:search track by $index"> -->
+
+<!-- <td><b>{{facilitydetail.userfacility_id}}</b> -->
+<!-- </td> -->
+
+<!-- <td><b ng-if="!e">{{facilitydetail.facility_name}}</b> -->
+<!-- <h3 ng-if="e"> -->
+<!-- <div class="form-group"> -->
+<!-- <input type="text" class="form-control" placeholder="Enter Facility Name" ng-model="facilitydetail.name"> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- </td> -->
+
+<!-- <td><b ng-if="!e">{{facilitydetail.facility_owner}}</b> -->
+<!-- <h3 ng-if="e"> -->
+<!-- <div class="form-group"> -->
+<!-- <input type="text" class="form-control" placeholder="Enter Facility Name" ng-model="facilitydetail.name"> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- </td> -->
+
+<!-- <td><b>{{facilitydetail.description}}</b> -->
+
+<!-- </td> -->
+<!-- <td><b ng-if="!e">{{facilitydetail.address}}</b> -->
+<!-- <h3 ng-if="e"> -->
+<!-- <div class="form-group"> -->
+<!-- <input type="text" class="form-control" placeholder="Enter Facility Address" ng-model="facilitydetail.addresss"> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- </td> -->
+
+<!-- <td><b ng-if="!e">{{facilitydetail.email}}</b> -->
+<!-- <h3 ng-if="e"> -->
+<!-- <div class="form-group"> -->
+<!-- <input type="text" class="form-control" placeholder="Enter Facility Email" ng-model="facilitydetail.emails"> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- </td> -->
+<!-- <td><b ng-if="!e">{{facilitydetail.mobile_number}}</b> -->
+<!-- <h3 ng-if="e"> -->
+<!-- <div class="form-group"> -->
+<!-- <input type="text" class="form-control" placeholder="Enter Facility Number" ng-model="facilitydetail.number"> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- </td> -->
+
+<!-- <td><b>{{facilitydetail.council_name}}</b> -->
+<!-- </td> -->
+
+<!-- <td><b>{{facilitydetail.region_name}}</b> -->
+<!-- </td> -->
+
+<!-- <td ng-if="e"> -->
+<!-- <h3 > -->
+<!-- <div class="form-group"> -->
+<!-- <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="facility_update(facilitydetail)">Update</button> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- <button class="btn btn-default" ng-click="edit(region.id)">Edit</button>-->
+<!-- </td> -->
+
+<!-- <td> -->
+<!-- <input type="checkbox" class="btn btn-info" ng-model="e">Edit -->
+<!-- </td> -->
+<!-- <td  ng-if="!e"> -->
+<!-- <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List">Manage Facility</button> -->
+<!-- </td> -->
+<!-- <!--<td>{{ region.tastiness }}</td>--> -->
+<!-- </tr> -->
+<!-- </tbody> -->
+
+<!-- </table> -->
+
+<!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
+    <!-- <div class="row"> -->
+        <!-- <div class="col-md-12 form-box"> -->
+            <!-- <form  role="form" class="registration-form" action="javascript:void(0);"> -->
+                <!-- <fieldset> -->
+                    <!-- <div class="form-top"> -->
+                        <!-- <div class="form-top-left"> -->
+                            <!-- <h3><span><i class="fa fa-gear" aria-hidden="true"></i></span>Facility Registration</h3> -->
+
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <div class="form-bottom"> -->
+                        <!-- <div class="row"> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label>Facility Name *</label> -->
+                                <!-- <input type="text" ng-model="facility.name" class="form-control" placeholder="Enter Facility Name" id="fname"> -->
+                            <!-- </div> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label>Facility Owner*</label> -->
+                                <!-- <input type="text" ng-model="facility.owner" class="form-control" placeholder="Enter Facility Owner's Name" id="lname"> -->
+                            <!-- </div> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label>Facility Mobile Number*</label> -->
+                                <!-- <input type="text" ng-model="facility.mobilenumber" class="form-control" placeholder="Enter Facility Mobile Number" id="lname"> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+
+                        <!-- <div class="row"> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label> Facility Email*</label> -->
+                                <!-- <input type="text" ng-model="facility.email" class="form-control" placeholder="Enter Facility Email" id="fname"> -->
+                            <!-- </div> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label>Facility Address*</label> -->
+                                <!-- <input type="text" ng-model="facility.address" class="form-control" placeholder="Enter Facility Address" id="fname"> -->
+                            <!-- </div> -->
+                             <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label> Facility Type*</label> -->
+                                <!-- <select ng-model="facility.facility_type.id" class="form-control"> -->
+									<!-- <option disabled selected value>Select Facility Type</option> -->
+                                    <!-- <option ng-value="facility_type.id" ng-repeat="facility_type in facilitytype">{{facility_type.description}}</option> -->
+                                <!-- </select> -->
+                            <!-- </div> -->
+                        <!-- </div>   -->
+						
+						<!-- <div class="row"> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label> Facility Council*</label> -->
+                                 <!-- <select ng-model="facility.facility_council.id" class="form-control"> -->
+									<!-- <option disabled selected value>Select Council</option> -->
+                                    <!-- <option ng-value="facility_council.id" ng-repeat="facility_council in facilitycouncil">{{facility_council.council_name}}</option> -->
+                                <!-- </select> -->
+                            <!-- </div> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label>Facility Region*</label> -->
+                                 <!-- <select ng-model="facility.facility_region.id" class="form-control"> -->
+									<!-- <option disabled selected value>Select Region</option> -->
+                                    <!-- <option ng-value="facility_region.id" ng-repeat="facility_region in facilityregion">{{facility_region.region_name}}</option> -->
+                                <!-- </select> -->
+                            <!-- </div> -->
+                             <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label> Facility Motto*</label> -->
+                                <!-- <input type="text" ng-model="facility.motto" class="form-control" placeholder="Enter Facility Motto" id="fname"> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+						
+                        <!-- <button type="submit" class="btn btn-success" ng-click="facility_registration(facility)">SAVE</button> -->
+                    <!-- </div> -->
+                <!-- </fieldset> -->
+            <!-- </form> -->
+        <!-- </div> -->
+    <!-- </div> -->
+<!-- </div> -->
+
+
+
+
+<!-- <script type="text/javascript"> -->
+    <!-- $(document).ready(function () { -->
+        <!-- $('.registration-form fieldset:first-child').fadeIn('slow'); -->
+
+        <!-- $('.registration-form input[type="text"]').on('focus', function () { -->
+            <!-- $(this).removeClass('input-error'); -->
+        <!-- }); -->
+
+        <!-- // next step -->
+        <!-- $('.registration-form .btn-next').on('click', function () { -->
+            <!-- var parent_fieldset = $(this).parents('fieldset'); -->
+            <!-- var next_step = true; -->
+
+            <!-- parent_fieldset.find('input[type="text"],input[type="email"]').each(function () { -->
+                <!-- if ($(this).val() == "") { -->
+                    <!-- $(this).addClass('input-error'); -->
+                    <!-- next_step = false; -->
+                <!-- } else { -->
+                    <!-- $(this).removeClass('input-error'); -->
+                <!-- } -->
+            <!-- }); -->
+
+            <!-- if (next_step) { -->
+                <!-- parent_fieldset.fadeOut(400, function () { -->
+                    <!-- $(this).next().fadeIn(); -->
+                <!-- }); -->
+            <!-- } -->
+
+        <!-- }); -->
+
+        <!-- // previous step -->
+        <!-- $('.registration-form .btn-previous').on('click', function () { -->
+            <!-- $(this).parents('fieldset').fadeOut(400, function () { -->
+                <!-- $(this).prev().fadeIn(); -->
+            <!-- }); -->
+        <!-- }); -->
+
+        <!-- // submit -->
+        <!-- $('.registration-form').on('submit', function (e) { -->
+
+            <!-- $(this).find('input[type="text"],input[type="email"]').each(function () { -->
+                <!-- if ($(this).val() == "") { -->
+                    <!-- e.preventDefault(); -->
+                    <!-- $(this).addClass('input-error'); -->
+                <!-- } else { -->
+                    <!-- $(this).removeClass('input-error'); -->
+                <!-- } -->
+            <!-- }); -->
+
+        <!-- }); -->
+
+
+    <!-- }); -->
+<!-- </script> -->
+
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="row"> -->
+<!-- <div ng-show="isSet(2)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="panel panel-primary"> -->
+<!-- <div class="panel-body"> -->
+
+<!-- <table class="table table-bordered table-striped"> -->
+<!-- <thead> -->
+<!-- <tr> -->
+<!-- <td class="text-navy">No#</td> -->
+<!-- <td class="text-navy">Name</td> -->
+<!-- <td class="text-navy">Mobile</td> -->
+<!-- <td class="text-navy">Email</td> -->
+<!-- <td class="text-navy">Gender</td> -->
+<!-- <td class="text-navy">Facility Name</td> -->
+<!-- <td class="text-navy">Facility Type</td> -->
+<!-- <td class="text-navy">Facility Council</td> -->
+<!-- <td class="text-navy">Facility Region</td> -->
+<!-- <td class="text-navy">Edit</td> -->
+<!-- <td  ng-if="!e">X</td> -->
+<!-- </tr> -->
+<!-- </thead> -->
+
+<!-- <tbody> -->
+<!-- <tr ng-repeat="facilityalluser in facilityalluserdetails | filter:search track by $index"> -->
+
+<!-- <td><b>{{facilityalluser.user_id}}</b> -->
+<!-- </td> -->
+
+<!-- <td><b ng-if="!e">{{facilityalluser.name}}</b> -->
+<!-- <h3 ng-if="e"> -->
+<!-- <div class="form-group"> -->
+<!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.reagents"> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- </td> -->
+
+<!-- <td><b>{{facilityalluser.mobile_number}}</b> -->
+
+<!-- </td> -->
+<!-- <td><b ng-if="!e">{{facilityalluser.email}}</b> -->
+<!-- <h3 ng-if="e"> -->
+<!-- <div class="form-group"> -->
+<!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- </td> -->
+
+<!-- <td><b ng-if="!e">{{facilityalluser.gender}}</b> -->
+<!-- <h3 ng-if="e"> -->
+<!-- <div class="form-group"> -->
+<!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- </td> -->
+
+<!-- <td><b ng-if="!e">{{facilityalluser.facility_name}}</b> -->
+<!-- <h3 ng-if="e"> -->
+<!-- <div class="form-group"> -->
+<!-- <input data-toggle="tooltip" class="form-control input-lg" type="text" placeholder="Search Facility" ng-model="equipment.facilitys" uib-typeahead="facilitys as facilitys.facility_name for facilitys in showFacility($viewValue) | filter:$viewValue | limitTo:3"> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- </td> -->
+
+<!-- <td><b>{{facilityalluser.description}}</b> -->
+<!-- </td> -->
+
+<!-- <td><b>{{facilityalluser.council_name}}</b> -->
+<!-- </td> -->
+
+<!-- <td><b>{{facilityalluser.region_name}}</b> -->
+<!-- </td> -->
+
+<!-- <td ng-if="e"> -->
+<!-- <h3 > -->
+<!-- <div class="form-group"> -->
+<!-- <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="equipement_update(equipment)">Update</button> -->
+<!-- </div> -->
+<!-- </h3> -->
+<!-- <!--<button class="btn btn-default" ng-click="edit(region.id)">Edit</button>--> -->
+<!-- </td> -->
+
+<!-- <td> -->
+<!-- <input type="checkbox" class="btn btn-info" ng-model="e">Edit -->
+<!-- </td> -->
+<!-- <td  ng-if="!e"> -->
+<!-- <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="equipement_delete(equipment)">Delete</button> -->
+<!-- </td> -->
+<!-- <!--<td>{{ region.tastiness }}</td>--> -->
+<!-- </tr> -->
+<!-- </tbody> -->
+
+<!-- </table> -->
+
+<!-- <div class="wrapper wrapper-content animated fadeInRight"> -->
+    <!-- <div class="row"> -->
+        <!-- <div class="col-md-12 form-box"> -->
+            <!-- <form  role="form" class="registration-form" action="javascript:void(0);"> -->
+                <!-- <fieldset> -->
+                    <!-- <div class="form-top"> -->
+                        <!-- <div class="form-top-left"> -->
+                            <!-- <h3><span><i class="fa fa-gear" aria-hidden="true"></i></span>Users Registration</h3> -->
+
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <div class="form-bottom"> -->
+                        <!-- <div class="row"> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label> Name *</label> -->
+                                <!-- <input type="text" ng-model="user.name" class="form-control" placeholder="Name" id="fname"> -->
+                            <!-- </div> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label>Email *</label> -->
+                                <!-- <input type="text" ng-model="user.email" class="form-control" placeholder="Email" id="lname"> -->
+                            <!-- </div> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label>Password*</label> -->
+                                <!-- <input type="password" ng-model="user.password" class="form-control" placeholder="Password" id="lname"> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+
+                        <!-- <div class="row"> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label> Mobile Number*</label> -->
+                                <!-- <input type="text" ng-model="user.mobile_number" class="form-control" placeholder=" Mobile Number" id="fname"> -->
+                            <!-- </div> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label>Gender *</label> -->
+                                <!-- <select ng-model="user.gender" class="form-control"> -->
+
+                                    <!-- <option>Male</option> -->
+                                    <!-- <option>Female</option> -->
+                                <!-- </select> -->
+                            <!-- </div> -->
+                             <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label> Professional</label> -->
+                                <!-- <select ng-model="user.proffesionals_id" class="form-control"> -->
+
+                                    <!-- <option ng-value="professional.id" ng-repeat="professional in professsionals">{{professional.prof_name}}</option> -->
+                                <!-- </select> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+						
+						<!-- <div class="row"> -->
+                            <!-- <div class="form-group col-md-4 col-sm-4"> -->
+                                <!-- <label> Facility *</label> -->
+                                 <!-- <select ng-model="user.facility.userfacility_id" class="form-control"> -->
+									<!-- <option disabled selected value>Select Facility</option> -->
+                                    <!-- <option ng-value="facility.userfacility_id" ng-repeat="facility in getfacility_all">{{facility.facility_name}}</option> -->
+                                <!-- </select> -->
+                            <!-- </div> -->
+                          <!-- </div> -->
+                        <!-- <button type="submit" class="btn btn-success" ng-click="alluser_registration(user)">SAVE</button> -->
+                    <!-- </div> -->
+                <!-- </fieldset> -->
+            <!-- </form> -->
+        <!-- </div> -->
+    <!-- </div> -->
+<!-- </div> -->
+
+
+
+
+<!-- <script type="text/javascript"> -->
+    <!-- $(document).ready(function () { -->
+        <!-- $('.registration-form fieldset:first-child').fadeIn('slow'); -->
+
+        <!-- $('.registration-form input[type="text"]').on('focus', function () { -->
+            <!-- $(this).removeClass('input-error'); -->
+        <!-- }); -->
+
+        <!-- // next step -->
+        <!-- $('.registration-form .btn-next').on('click', function () { -->
+            <!-- var parent_fieldset = $(this).parents('fieldset'); -->
+            <!-- var next_step = true; -->
+
+            <!-- parent_fieldset.find('input[type="text"],input[type="email"]').each(function () { -->
+                <!-- if ($(this).val() == "") { -->
+                    <!-- $(this).addClass('input-error'); -->
+                    <!-- next_step = false; -->
+                <!-- } else { -->
+                    <!-- $(this).removeClass('input-error'); -->
+                <!-- } -->
+            <!-- }); -->
+
+            <!-- if (next_step) { -->
+                <!-- parent_fieldset.fadeOut(400, function () { -->
+                    <!-- $(this).next().fadeIn(); -->
+                <!-- }); -->
+            <!-- } -->
+
+        <!-- }); -->
+
+        <!-- // previous step -->
+        <!-- $('.registration-form .btn-previous').on('click', function () { -->
+            <!-- $(this).parents('fieldset').fadeOut(400, function () { -->
+                <!-- $(this).prev().fadeIn(); -->
+            <!-- }); -->
+        <!-- }); -->
+
+        <!-- // submit -->
+        <!-- $('.registration-form').on('submit', function (e) { -->
+
+            <!-- $(this).find('input[type="text"],input[type="email"]').each(function () { -->
+                <!-- if ($(this).val() == "") { -->
+                    <!-- e.preventDefault(); -->
+                    <!-- $(this).addClass('input-error'); -->
+                <!-- } else { -->
+                    <!-- $(this).removeClass('input-error'); -->
+                <!-- } -->
+            <!-- }); -->
+
+        <!-- }); -->
+
+
+    <!-- }); -->
+<!-- </script> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- </div> -->
+
+<!-- </fieldset> -->
+<!-- </form> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->

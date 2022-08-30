@@ -1,0 +1,146 @@
+
+<!-- <div class="wrapper wrapper-content animated fadeInRight" ng-controller="tController"> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-md-12 form-box"> -->
+<!-- <form  role="form" class="mortuary-form" action="javascript:void(0);"> -->
+<!-- <fieldset> -->
+<!-- <div class="form-top"> -->
+<!-- <div class="form-top-left"> -->
+<!-- <h4><span></span>TRANSACTION SETUP PAGE</h4> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="form-bottom"> -->
+<!-- <div class="row hidden-print"> -->
+<!-- <ul class="nav nav-tabs nav-justified" > -->
+<!-- <li ng-class="{active: isSet(1) }"> -->
+<!-- <a href ng-click="setTab(1)"><span>SETUP YOUR TRANSACTION BALANCE</span></a></li> -->
+<!-- <li ng-class="{active: isSet(2) }"  ng-click="gettransactionbalance()"> -->
+<!-- <a href ng-click="setTab(2)">VIEW ALL YOUR TRANSACTION BALANCE</a></li> -->
+<!-- </ul> -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- </div> -->
+<!-- <div class="row"> -->
+
+<!-- <div ng-show="isSet(1)"> -->
+<!-- <div class="form-group col-md-4 col-sm-4"> -->
+ <!-- <label>Weka Kiasi cha Fedha:</label> -->
+ <!-- <input type="text" ng-model="companytransaction.amount" class="form-control" placeholder="Enter Amount Carefully" id="fname"> -->
+<!-- </div> -->
+<!-- <div class="form-group col-md-4 col-sm-4"> -->
+<!-- <label>Chagua kwa Makini Kampuni ya Muamala:</label> -->
+	<!-- <select ng-model="companytransaction.tcompany.id" class="form-control" data-toggle="tooltip" title="Select Equipment Status"> -->
+	<!-- <option disabled selected value>Select Transaction Company</option> -->
+	<!-- <option ng-value="tcompany.id" ng-repeat="tcompany in tcompanies">{{tcompany.company_name}}</option> -->
+	<!-- </select> -->
+<!-- </div> -->
+<!-- <label>Hifadhi Kumbukumbu:</label><br> -->
+<!-- <button type="submit" class="btn btn-success" ng-click="save_comp_tra_balance(companytransaction)">SAVE</button> -->
+<!-- <hr> -->
+<!-- </div> -->
+
+<!-- <div ng-show="isSet(2)"> -->
+<!-- <div class="col-md-12"> -->
+<!-- <div class="panel panel-primary"> -->
+    <!-- <table class="table table-bordered table-striped"> -->
+        <!-- <b>ALL TRANSACTION BALANCE:</b> -->
+
+        <!-- <thead> -->
+        <!-- <tr> -->
+            <!-- <td class="text-navy">No#</td> -->
+            <!-- <td class="text-navy">Transaction Company Name</td> -->
+            <!-- <td class="text-navy">Company ID</td> -->
+            <!-- <td class="text-navy">Facility</td> -->
+            <!-- <td class="text-navy">Registered By</td> -->
+            <!-- <td class="text-navy">Status</td> -->
+            <!-- <td class="text-navy">Created At</td> -->
+			<!-- <td class="text-navy">Activate</td> -->
+            <!-- <td class="text-navy">Edit</td> -->
+            
+            <!-- <td>X</td> -->
+        <!-- </tr> -->
+        <!-- </thead> -->
+
+        <!-- <tbody> -->
+        <!-- <tr ng-repeat="transactionbalance in transactionbalances | filter:search track by $index"> -->
+
+            <!-- <td><b>{{transactionbalance.id}}</b> -->
+            <!-- </td> -->
+
+            <!-- <td><b>{{transactionbalance.company_name}}</b> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{transactionbalance.amount}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+            <!-- <td><b ng-if="!e">{{transactionbalance.facility_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.minimum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+
+            <!-- <td><b ng-if="!e">{{transactionbalance.name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{transactionbalance.status_name}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td><b ng-if="!e">{{transactionbalance.created_at}}</b> -->
+                <!-- <h3 ng-if="e"> -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <input type="text" class="form-control" placeholder="Enter Equipment Status" ng-model="equipment.maximum_limit"> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+            <!-- </td> -->
+			<!-- <td> -->
+			<!-- <button class="alert-danger" data-toggle="tooltip" title="Click To Activate Balance" ng-click="activate_balance(equipment)">Activate</button> -->
+            <!-- </td> -->
+           <!-- <td ng-if="e"> -->
+                <!-- <h3 > -->
+                    <!-- <div class="form-group"> -->
+                        <!-- <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="equipement_update(equipment)">Update</button> -->
+                    <!-- </div> -->
+                <!-- </h3> -->
+                <!-- <!--<button class="btn btn-default" ng-click="edit(region.id)">Edit</button>--> -->
+            <!-- </td> -->
+
+            <!-- <td> -->
+                <!-- <input type="checkbox" class="btn btn-info" ng-model="e">Edit -->
+            <!-- </td> -->
+            <!-- <td  ng-if="!e"> -->
+                <!-- <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="equipement_delete(equipment)">Delete</button> -->
+            <!-- </td> -->
+            <!-- <!--<td>{{ region.tastiness }}</td>--> -->
+        <!-- </tr> -->
+        <!-- </tbody> -->
+
+    <!-- </table> -->
+
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- </fieldset> -->
+<!-- </form> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- </div> -->

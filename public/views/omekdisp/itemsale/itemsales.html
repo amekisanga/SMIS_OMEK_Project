@@ -1,0 +1,248 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="itemsaleController">
+<div class="row">
+<div class="col-md-12 form-box">
+<form  role="form" class="Sales-form" action="javascript:void(0);">
+
+
+	<fieldset>
+		<div class="form-top">
+		<div class="form-top-left">
+		<h4><span></span>ITEM SALES MODULE</h4>
+		
+		</div>
+		</div>
+		<div class="form-bottom">
+		<div class="row hidden-print">
+		<ul class="nav nav-tabs nav-justified" >
+		<li ng-class="{active: isSet(1) }">
+		<a href ng-click="setTab(1)"><span>ITEM SALES</span></a></li>
+		<li ng-class="{active: isSet(2) }"  ng-click="getitemsold()">
+		<a href ng-click="setTab(2)">VIEW YOUR TODAYS SALES &nbsp; && &nbsp; RECEIPT PRINTING</a></li>
+		</ul>
+		<br>
+		<br>
+		</div>
+		<div class="row">
+		
+		<div ng-show="isSet(1)">
+
+		<div class="col-md-12">
+			
+				<div class="col-xs-3">
+                <h4 align="left">SEARCH FOR CLIENT</h4>
+                <input type="text" ng-model="selectedclient" 
+                uib-typeahead="searchedclient as searchedclient.client_name for searchedclient in 
+                showClient($viewValue) | filter:$viewValue | limitTo:8" 
+                class="form-control input-lg" placeholder="SEARCH FOR CLIENT">
+
+                </div>
+
+				<div class="col-xs-9">
+					<h4 align="right">CLIENT DETAILS</h4>
+				<p style="font-size:17px;" ng-if="!e">
+					<b>Name:</b> {{selectedclient.client_name}} |
+					<b>Reg_No:</b> {{selectedclient.client_registration_no}} |
+					<b>Gender:</b> {{selectedclient.gender_name}} | 
+					<b>Age:</b> {{selectedclient.client_age}} |
+					<b>Last Visit:</b> {{selectedclient.updated_at}} 
+					</p>
+				</div>
+		</div>
+
+		<div class="col-md-12">
+			
+			<div class="col-xs-3">
+				<h4 align="left">SEARCH FOR SERVICE / ITEM</h4>
+				<div class="input-group">
+					<input data-toggle="tooltip" class="form-control input-lg" type="text" 
+					placeholder="SEARCH FOR SERVICE / ITEM TO SALE" ng-model="selecteditem" 
+					uib-typeahead="itemtosale as itemtosale.item_name for itemtosale in showItem($viewValue) 
+					| filter:$viewValue | limitTo:7">
+					<div class="input-group-btn">
+					<td><button class="btn btn-lg btn-success" ng-click="selecteditemlist(selecteditem)">add</button></td>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-xs-12">
+				<h4 align="right">SERVICE / ITEM DETAILS </h4>
+
+				<div class="col-md-12" ng-if="selecteditemtosalea.length >0">
+					<div class="cardStyle">
+					
+					<table class="table table-bordered table-striped">
+					
+					<thead>
+					<tr>
+					<td class="text-navy">ID</td>
+					<td class="text-navy">NAME</td>
+					<td class="text-navy">TYPE</td>
+					<td class="text-navy">UNIT</td>
+					<td class="text-navy">STOCK</td>
+					<td class="text-navy">BUYING PRICE</td>
+					<td class="text-navy">SELLING PRICE</td>
+					<td class="text-navy">SELLING QUANTITY</td>
+					<td class="text-navy">TOTAL AMOUNT</td>
+					<td class="text-navy">REMAIN STOCK</td>
+					<td class="text-navy">MANAGE</td>
+					</tr>
+					</thead>
+					
+					<tbody>
+					<tr ng-repeat="selecteditemtosales in selecteditemtosalea">
+					<td><b>{{$index + 1}}</b></td>
+					<td><b>{{selecteditemtosales.item_name}}</b></td>
+					
+					<td><b>{{selecteditemtosales.itemtyp}}</b></td>
+					
+					<td><b>{{selecteditemtosales.unit}}</b></td>
+					
+					<td><b>{{selecteditemtosales.quantity}}</b></td>
+					
+					<td><b>{{selecteditemtosales.buying_price}}</b></td>
+					
+					<td><b>{{selecteditemtosales.selling_price}}</b></td>
+
+					<td>
+					<input type="number" placeholder="Enter Quantity"  min="0"  ng-blur="salequantity(selecteditemtosales)" ng-model="selecteditemtosales.amount">
+					</td>
+				
+					<td> 
+					<h3 ng-if="selecteditemtosales.amount < selecteditemtosales.quantity" style="color:maroon" role="info">{{selecteditemtosales.amount * selecteditemtosales.selling_price}}</h3>
+					</td>
+					
+					<td>
+					<h3 ng-if="selecteditemtosales.amount < selecteditemtosales.quantity" style="color:maroon" role="info">{{selecteditemtosales.quantity - selecteditemtosales.amount}}</h3>
+					</td>
+					
+					<td ng-repeat="bakii in arrayiliyobaki track by $index">
+					<h3 ng-model="remainstock" ng-if="selecteditemtosales.amount < selecteditemtosales.quantity" style="color:maroon" role="info" ng-value="">{{selecteditemtosales.quantity - selecteditemtosales.amount}}</h3>
+					{{bakii}}
+					</td>
+					
+					<td><button ng-click="removeitem(selecteditemtosales)">Remove</button>
+					</td>
+					
+					</tr>
+					<tr>
+					<td colspan="8" align="center"><b>TOTAL AMOUNT THAT YOU NEED TO COLLECT FROM A CUSTOMER IS &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</b>
+						<button ng-click="saveitemsold(selecteditemtosalea)" align="right">CLICK TO VIEW TOTAL</button></td>
+					
+					<td align="center" ng-model="totalsales" style="font-size:x-large;color:red">{{totals}}</td>
+					<td align="center"><button ng-click="save_sales(selecteditemtosalea, selectedclient)">COMMIT SALES</button></td>
+					</tr>
+					</tbody>
+					
+					</table>
+					
+					</div>
+					</div>
+			
+			</div>
+		</div>
+		
+		
+		
+		</div>
+		
+		<div ng-show="isSet(2)">
+		<div class="col-md-12">
+		<div class="panel panel-primary">
+			<table class="table table-bordered table-striped">
+				<b>Your Today's Sales:</b>
+		
+				<thead>
+				<tr>
+					<td class="text-navy">No#</td>
+					<td class="text-navy">Item Name</td>
+					<td class="text-navy">Item Category</td>
+					<td class="text-navy">Unit</td>
+					<td class="text-navy">Department</td>
+					<td class="text-navy">Quantity Sold</td>
+					<td class="text-navy">Amount Paid</td>
+					<td class="text-navy">Date and Time</td>
+					<td class="text-navy">Reorder Level</td>
+					<td class="text-navy">Remain Quantity</td>
+					<td class="text-navy">User</td>
+					<td class="text-navy">Facility</td>
+					<td class="text-navy">Client</td>
+				</tr>
+				</thead>
+		
+				<tbody>
+				<tr ng-repeat="itemsolded in itemsold | filter:search track by $index">
+		
+					<td><b ng-if="!e"></b>
+					<input
+						type="checkbox"
+						ng-model="itemsolded.SELECTED"
+						ng-true-value="'Y'"
+						ng-false-value="'N'"
+					> {{itemsolded.sales_id}}
+					</td>
+		
+					<td><b ng-if="!e">{{itemsolded.item_name}}</b>
+					</td>
+		
+					<td><b ng-if="!e">{{itemsolded.item_category_name}}</b>
+					</td>
+					
+					<td><b ng-if="!e">{{itemsolded.item_unit_name}}</b>
+					</td>
+		
+					<td><b ng-if="!e">{{itemsolded.item_department}}</b>
+					</td>
+					
+					<td><b ng-if="!e">{{itemsolded.quantity_sold}}</b>
+					</td>
+		
+					<td><b ng-if="!e">{{itemsolded.sale_amount_total}}</b>
+					</td>
+					
+					<td><b ng-if="!e">{{itemsolded.date_sold}}  &nbsp;  {{itemsolded.time_sold}}</b>
+					</td>
+		
+					<td><b ng-if="!e">{{itemsolded.reorder_level}}</b>
+					</td>
+					
+					<td><b ng-if="!e">{{itemsolded.quantity_remain}}</b>
+					</td>
+					
+					<td><b ng-if="!e">{{itemsolded.user_name}}</b>
+					</td>
+
+					<td><b ng-if="!e">{{itemsolded.facility_name}}</b>
+					</td>
+
+					<td><b ng-if="!e">{{itemsolded.client_name}}</b>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<h3>
+							<div class="form-group">
+								<button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" ng-click="viewreceipt(itemsold)">VIEW RECEIPT</button>
+							</div>
+						</h3>
+						<!-- <button class="btn btn-default" ng-click="edit(region.id)">Edit</button> -->
+						
+					</td>
+				</tr>
+			</tbody>
+		
+			</table>
+		
+		
+		</div>
+		</div>
+		</div>
+		
+		</fieldset>
+
+</form>
+</div>
+</div>
+</div>
+
+
