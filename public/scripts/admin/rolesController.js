@@ -50,7 +50,7 @@
 			
              // SEND THE FILES.
             $http(request).then(function (data) {
-					//console.log(request);
+					console.log(request);
                     swal({
 			title: '',
 			html: $('<div>')
@@ -108,6 +108,8 @@
 
 
             	$http.get('public/api/getUserImage/'+user_name).then(function(data) {
+					//console.log(user_name);
+					//console.log("here we are");
             $scope.photo='public/uploads/'+data.data[0].photo_path;
                   //console.log($scope.photo);				  
             
