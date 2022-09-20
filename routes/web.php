@@ -70,6 +70,12 @@ Route::group(['prefix' => 'api'], function()
 
 	 //report APIs
 	 Route::post('getcliregistrationnreport','OmekReportController\ClientRegistrationController@cliregistrationnreport');
+
+	//Download Links
+	//Route::get('downloadExcel/{type}', 'MaatwebsiteDemoController@downloadExcel');
+	Route::get('downloadExcel', 'OmekReportController\ClientRegistrationController@downloadExcel');
+	Route::get('downloadExcel/{type}', 'OmekReportController\ClientRegistrationController@downloadExcel'); 
+	Route::get('pdfview',array('as'=>'pdfview','uses'=>'OmekReportController\ClientRegistrationController@pdfview')); 
 	 
     //routes for editing user
     // Route::post('update_user', 'AuthenticateController@update_user');
@@ -257,6 +263,6 @@ Route::group(['prefix' => 'api'], function()
     // Route::post('getfacilitybatchreport', 'Dukani\ReportController@getfacilitybatchreport');
 
 	//Export & Import
-	Route::get('downloadExcel/{type}', 'MaatwebsiteDemoController@downloadExcel');
+	
 
 });

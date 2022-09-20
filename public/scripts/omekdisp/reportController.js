@@ -152,5 +152,14 @@
 		//return $scope.client_residence;
 		}
 
+		$scope.excelDownload=function(){
+			
+			$http.get('public/api/downloadExcel').then(function(data) {
+				$scope.download =data.data;
+				
+				console.log($scope.download);
+				});
+				//return 2;
+		}
 	}
 })();

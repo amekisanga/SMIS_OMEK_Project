@@ -101,29 +101,5 @@ class ItemSalesReport extends Controller
 		->get();
 	}
 
-
-	//Download excel Function Start
-	public function downloadExcel($type)
-
-	{
-		return 345;
-		//$data = Item::get()->toArray();
-		$data = Tbl_client::get()->toArray();
-
-		return Excel::create('onlinecode_example', function($excel) use ($data) {
-
-			$excel->sheet('mySheet', function($sheet) use ($data)
-
-	        {
-
-				$sheet->fromArray($data);
-
-	        });
-
-		})->download($type);
-
-	}
-	//Download excel Function End
-
 }
- //"maatwebsite/excel": "^2.1",
+ 

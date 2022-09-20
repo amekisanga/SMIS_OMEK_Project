@@ -112,9 +112,11 @@
                         <p>Go to <a ng-href="{{myVar}}">{{myVar}}</a> to learn!</p>
                     </div> -->
                     <!-- <a href="downloadExcel/xlsx"><button class="btn btn-success">Download Excel XLSX</button></a> -->
-                    <a href="downloadExcel/xlsx" class="btn btn-danger">
+                    <a href="downloadExcel" class="btn btn-danger">
                         Download Excel
                     </a>
+                    <button type="submit" class="btn btn-primary btn-success" ng-click="excelDownload(xls)">DOWNLOAD EXCEL</button>
+                    <!-- <a href="{{ http://localhost/OMEK/public/api/('downloadExcel/xls') }}"><button class="btn btn-success">Download Excel xls</button></a> -->
                 </td>
             </tr>
             <!-- <tr>

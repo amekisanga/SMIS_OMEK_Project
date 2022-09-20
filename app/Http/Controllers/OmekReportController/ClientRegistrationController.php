@@ -5,6 +5,8 @@ namespace App\Http\Controllers\OmekReportController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Excel;
+use PDF;
 
 class ClientRegistrationController extends Controller
 {
@@ -36,4 +38,101 @@ class ClientRegistrationController extends Controller
 	// 	->get();
 
     }
+
+    Public function downloadExcels()
+	{
+		
+		$customer_data = DB::table('tbl_sales')->get()->toArray();
+
+		$customer_array[] = array('ID', 'Department');
+		foreach($customer_data as $customer)
+		{
+		 $customer_array[] = array(
+		  'ID'  => $customer->id,
+		  'Department'   => $customer->department_name
+		 );
+		
+		 //return $customer_data;
+		}
+	//return $customer_array;
+	return	Excel::create('Customer Data', function($excel) use ($customer_array){
+			 $excel->setTitle('Customer Data');
+			 $excel->sheet('Customer Data', function($sheet) use ($customer_array){
+			  $sheet->fromArray($customer_array, null, 'A1', false, false);
+			 });
+			})->download('data.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+
+	}
+
+	public function downloadExcel($type)  
+    {  
+        // $type;
+        //return $data = Item::get()->toArray(); 
+        $data = DB::table('tbl_sales')->get()->toArray();
+		//return $data; 
+		foreach($data as $customer)
+		{
+		 $customer_array[] = array(
+		  'ID'  => $customer->id,
+		  'Department'   => $customer->department_name
+		 );
+		}
+		//return $customer_array;
+        return Excel::create('Customer_Dataa', function($excel) use ($customer_array) {  
+            $excel->setTitle('Customer_Data');
+            $excel->sheet('mySheet', function($sheet) use ($customer_array) 
+            //$sheet->fromArray($customer_array, null, 'A1', false, false); 
+            {  
+                $sheet->fromArray($customer_array);  
+            });  
+        })->download($type); 
+	}
+
+	public function pdfview(Request $request)  
+    {  
+        $items = DB::table('tbl_sales')->get();
+		//$items = DB::table("items")->get();  
+        view()->share('items',$items);  
+  
+        if($request->has('download')){ 
+		foreach($items as $customer)
+		{
+		 $pdf[] = array(
+		  'ID'  => $customer->id,
+		  'Department'   => $customer->department_name
+		 );
+		} 
+            // $pdf = PDF::loadView('pdfview');  
+            return $pdf->download('pdfview.pdf');  
+        }  
+  
+        return view('pdf');  
+    }  
+		
+	// 	Excel::create('Customer Data', function($excel) use ($customer_array){
+	// 	 $excel->setTitle('Customer Data');
+	// 	 $excel->sheet('Customer Data', function($sheet) use ($customer_array){
+	// 	  $sheet->fromArray($customer_array, null, 'A1', false, false);
+	// 	 });
+	// 	})->download('data.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+
+	// 	//$data = Item::get()->toArray();
+	// 	// $data = Tbl_client::get()->toArray();
+
+	// 	// return Excel::create('onlinecode_example', function($excel) use ($data) {
+
+	// 	// 	$excel->sheet('mySheet', function($sheet) use ($data)
+	//     //     {
+	// 	// 		$sheet->fromArray($data);
+	//     //     });
+	// 	// })->download($type);
+	// }
+
+	public function exportToExcel(Request $request)
+    {
+        $data = $request->all();
+        //ob_end_clean();
+        return (new InvoicesExport($data))->download('data_export.xlsx');
+    }
+
 }
