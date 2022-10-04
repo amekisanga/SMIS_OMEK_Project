@@ -408,14 +408,14 @@ class ItemmanageController extends Controller
 		]);
 
 		$data=array('item_id'=>$request['itemid'],
-		"item_bought"=>$request['new_item_bought'],
-		"item_bought_unit_price"=>$unit_price_of_bought_item,
-		"item_bought_total_buying_price"=>$item_buyingprice_new,
-		"item_bought_selling_price_new"=>$item_sellingprice_new,
-		"item_bought_selling_price_old"=>$item_sellingprice_old,
-		"item_bought_unit_price_old"=>$item_buyingprice_old,
-		"date"=>$datetime,
-		"facility_id"=>$request['facility_id']
+		'item_bought' =>$request['new_item_bought'],
+		'item_bought_unit_price' =>$unit_price_of_bought_item,
+		'item_bought_total_buying_price'=>$item_buyingprice_new,
+		'item_bought_selling_price_new' =>$item_sellingprice_new,
+		'item_bought_selling_price_old' =>$item_sellingprice_old,
+		'item_bought_unit_price_old' =>$item_buyingprice_old,
+		'date' =>$datetime,
+		'facility_id' =>$request['facility_id']
 		);
 
         $datas = DB::table('tbl_itempurchase_records')->insert($data);
@@ -439,9 +439,14 @@ class ItemmanageController extends Controller
 		// ->update(array(
 		// 	'member_type' => $plan
 		// )); 
-
-		
 	} 
+
+	public function getupdateditemrec($facility_id){
+
+		//$facility_id=$request['facility_id'];
+		return $facility_id;
+
+	}
 
 
 	// public function updatenewitem(Request $request)

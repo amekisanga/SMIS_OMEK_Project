@@ -67,16 +67,21 @@ Route::group(['prefix' => 'api'], function()
 	 Route::post('updatenewitem', 'OmekDispController\ItemmanageController@updatenewitem');
 	 Route::post('itempurchasereport', 'OmekDispController\ItemSalesReport@itempurchasereport');
 	 Route::post('getsolditemreport', 'OmekDispController\ItemSalesReport@getsolditemreport');
-
+	 Route::get('getupdateditemrec/{facility_id}', 'OmekDispController\ItemmanageController@getupdateditemrec');
 	 //report APIs
 	 Route::post('getcliregistrationnreport','OmekReportController\ClientRegistrationController@cliregistrationnreport');
-
+	 
 	//Download Links
 	//Route::get('downloadExcel/{type}', 'MaatwebsiteDemoController@downloadExcel');
 	Route::get('downloadExcel', 'OmekReportController\ClientRegistrationController@downloadExcel');
 	Route::get('downloadExcel/{type}', 'OmekReportController\ClientRegistrationController@downloadExcel'); 
 	Route::get('pdfview',array('as'=>'pdfview','uses'=>'OmekReportController\ClientRegistrationController@pdfview')); 
-	 
+	
+	//ITEM REGISTRED REPORT EXCEL DOWNLOAD September,2022
+	Route::get('itemregisteredreport/{type}', 'OmekReportController\ItemRegisterReportController@itemregistereddownloadexcel');
+	Route::get('todaysalesreport/{type}', 'OmekReportController\ItemRegisterReportController@todaysalesreportdownloadexcel'); 
+
+
     //routes for editing user
     // Route::post('update_user', 'AuthenticateController@update_user');
     // Route::post('register', 'AuthenticateController@register');

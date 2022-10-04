@@ -67,6 +67,7 @@ class ClientRegistrationController extends Controller
 	public function downloadExcel($type)  
     {  
         // $type;
+		//return $type;
         //return $data = Item::get()->toArray(); 
         $data = DB::table('tbl_sales')->get()->toArray();
 		//return $data; 
@@ -83,7 +84,7 @@ class ClientRegistrationController extends Controller
             $excel->sheet('mySheet', function($sheet) use ($customer_array) 
             //$sheet->fromArray($customer_array, null, 'A1', false, false); 
             {  
-                $sheet->fromArray($customer_array);  
+            $sheet->fromArray($customer_array);  
             });  
         })->download($type); 
 	}

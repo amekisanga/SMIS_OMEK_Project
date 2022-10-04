@@ -157,7 +157,7 @@
 			$http.get('public/api/downloadExcel').then(function(data) {
 				$scope.download =data.data;
 				
-				console.log($scope.download);
+				//console.log($scope.download);
 				});
 				//return 2;
 		}

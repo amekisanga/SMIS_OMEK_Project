@@ -149,7 +149,7 @@
 		//Get Item Registered
 		$scope.getitemregistered=function () {
           $http.get('public/api/get_item_registered/'+facility_id).then(function(data) {
-           //console.log(data.data);
+           console.log(data.data);
            $scope.item_registered=data.data;
              });
           }
@@ -216,6 +216,8 @@
 				//$scope.updateitemnew =data.data;
 				//console.log($scope.updateitemnew);
 				var statuses =data.data.status;
+				//console.log(statuses);
+
 				var msg =data.data.msg;
 				 
                         if(statuses ==0){
@@ -248,6 +250,19 @@
 					// 'item_reorder':item.reorder, 'user_id':user_id, 'user_facility_id':facility_id
 				 }
 			console.log(items);			
+		}
+
+
+
+		$scope.itemregisteredreport=function () {
+			var facilityid={'facility_id':facility_id};
+			$http.get('public/api/getupdateditem',facilityid).then(function(data) {
+				$scope.updated_item =data.data;
+				});
+			   console.log($scope.updated_item);
+			   //return $scope.item_toupdate;
+			var hello = 4;
+			console.log(hello);
 		}
 		
 	}

@@ -17,7 +17,7 @@
 <ul class="nav nav-tabs nav-justified" >
 <li ng-class="{active: isSet(1) }">
 <a href ng-click="setTab(1)"><span>UPDATE ITEM</span></a></li>
-<li ng-class="{active: isSet(2) }"  ng-click="getnewitemregistered()">
+<li ng-class="{active: isSet(2) }"  ng-click="itemregisteredreport()">
 <a href ng-click="setTab(2)">VIEW UPDATED ITEM</a></li>
 </ul>
 <br>
@@ -132,7 +132,7 @@ class="form-control input-lg" placeholder="SEARCH FOR ITEM THAT YOU NEED TO UPDA
 
 
 <td>
-    <h3 >
+    <h3>
     <div class="form-group">
     <button class="btn btn-success" data-toggle="tooltip" title="Click to Update This Record" 
     ng-click="update_item(itemtobeupdated, updateitem)">Update</button>
@@ -147,8 +147,6 @@ class="form-control input-lg" placeholder="SEARCH FOR ITEM THAT YOU NEED TO UPDA
 <td>
     <button class="alert-danger" data-toggle="tooltip" title="Click to Delete from List" ng-click="equipement_delete(itemtobeupdated)">Delete</button>
 </td>
-
-
 
 </tr>
 </tbody>
