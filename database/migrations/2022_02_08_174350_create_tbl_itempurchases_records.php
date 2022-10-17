@@ -24,6 +24,7 @@ class CreateTblItempurchasesRecords extends Migration
 			$table->integer('item_bought_selling_price_new')->nullable();
 			$table->integer('item_bought_selling_price_old')->nullable();
             $table->integer('item_bought_unit_price_old')->nullable();
+            $table->integer('item_last_stock')->nullable();
             $table->date('date')->nullable();
 			$table->integer('facility_id',false,true)->length(5);
             $table->foreign('facility_id')->references('id')->on('tbl_facilities');

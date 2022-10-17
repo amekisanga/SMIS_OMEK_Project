@@ -253,17 +253,25 @@
 		}
 
 
-
-		$scope.itemregisteredreport=function () {
-			var facilityid={'facility_id':facility_id};
-			$http.get('public/api/getupdateditem',facilityid).then(function(data) {
-				$scope.updated_item =data.data;
-				});
-			   console.log($scope.updated_item);
-			   //return $scope.item_toupdate;
-			var hello = 4;
-			console.log(hello);
+		$scope.viewupdateditem=function () {
+			//var facilityid={'facility_id':facility_id};
+			console.log(3);
+			console.log(facility_id);
+			// $http.get('public/api/getupdateditemrec',facility_id).then(function(data) {
+			// 	console.log(data.data);
+			// 	$scope.updated_item =data.data;
+			// 	});
+			//    console.log($scope.updated_item);
+			//    return $scope.updated_item;
 		}
-		
+
+		$scope.viewupdateditems=function () {
+			console.log(3);
+			$http.get('public/api/getupdateditemrec/'+facility_id).then(function(data) {
+			// $http.get('public/api/get_item_registered/'+facility_id).then(function(data) {
+			 console.log(data.data);
+			 $scope.updateditem=data.data;
+			   });
+			}
 	}
 })();

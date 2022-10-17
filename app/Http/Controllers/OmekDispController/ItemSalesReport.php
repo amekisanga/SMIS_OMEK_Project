@@ -88,9 +88,9 @@ class ItemSalesReport extends Controller
          $dateto=$request['dateto'];
 		 $facility_id=$request['facility_id'];
 
-		 return DB::table('tbl_itempurchases_records')
-		 ->join('tbl_items',"tbl_itempurchases_records.itemid","=","tbl_items.id")
-		 ->select('tbl_itempurchases_records.*','tbl_items.id as tblitemid','tbl_items.item_name')
+		 return DB::table('tbl_itempurchase_records')
+		 ->join('tbl_items',"tbl_itempurchase_records.item_id","=","tbl_items.id")
+		 ->select('tbl_itempurchase_records.*','tbl_items.id as tblitemid','tbl_items.item_name')
 		 ->get();
 	 }
 

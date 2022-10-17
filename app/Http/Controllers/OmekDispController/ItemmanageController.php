@@ -349,7 +349,7 @@ class ItemmanageController extends Controller
 		'tbl_sales.*','tbl_sales.id as sales_id',
 		'tbl_items.item_name','tbl_items.item_category_id','tbl_items.item_reorder as reorder_level','tbl_items.item_sellingprice_new as selling_price',
 		'tbl_item_categories.id as item_category_id','tbl_item_categories.item_category as item_category_name',
-		'tbl_item_units.id as item_unit_id', 'tbl_item_units.item_units as item_unit_name',
+		'tbl_item_units.id as item_unit_id','tbl_item_units.item_units as item_unit_name',
 		'tbl_item_departments.id as item_department_id','tbl_item_departments.item_department',
 		'users.id as user_id','users.name as user_name','tbl_facilities.id as facility_id','tbl_facilities.facility_name as facility_name',
 		'tbl_clients.id as client_id','tbl_clients.client_name'
@@ -370,10 +370,6 @@ class ItemmanageController extends Controller
 	public function updatenewitem(Request $request)
 	{
 		$datetime = date('Y-m-d H:i:s');
-		//updatenewitem
-		//tbl_itempurchase_records
-		//return $item_to_update_id=$request['itemid'];
-		//return $query_by_id = Tbl_item::where('id',$request['itemid'])->get();
 		$query_by_id = Tbl_item::where('id',$request['itemid'])->get();
 		
 		if($request['item_new_buying_price'] == ''){
@@ -414,6 +410,7 @@ class ItemmanageController extends Controller
 		'item_bought_selling_price_new' =>$item_sellingprice_new,
 		'item_bought_selling_price_old' =>$item_sellingprice_old,
 		'item_bought_unit_price_old' =>$item_buyingprice_old,
+		'item_last_stock' =>$request['item_quantity_bought'],
 		'date' =>$datetime,
 		'facility_id' =>$request['facility_id']
 		);
@@ -434,167 +431,29 @@ class ItemmanageController extends Controller
                     'status'=>0
                 ]);
 		}
-		// DB::table('user')
-		// ->where('id', $request['itemid'])
-		// ->update(array(
-		// 	'member_type' => $plan
-		// )); 
+		
 	} 
 
 	public function getupdateditemrec($facility_id){
 
-		//$facility_id=$request['facility_id'];
-		return $facility_id;
+		return DB::table('tbl_itempurchase_records')
+		 ->where('tbl_itempurchase_records.facility_id',$facility_id)
+			->select
+		 ('tbl_itempurchase_records.*','tbl_items.id as itemid_fromtblitem', 'tbl_items.item_name',
+		 'tbl_items.item_quantity_old','tbl_items.item_quantity_new','tbl_items.item_quantity_bought',
+		 'tbl_items.item_department_id','tbl_items.item_unit_id','tbl_item_categories.item_category',
+		 'tbl_item_units.item_units as item_unit_name','tbl_item_departments.item_department',
+		 'tbl_items.item_reorder','tbl_facilities.facility_name as facility_name','users.name as user_name'
+		 )
+		->join('tbl_items',"tbl_itempurchase_records.item_id","=","tbl_items.id")
+		->join('tbl_item_categories',"tbl_items.item_department_id","=","tbl_item_categories.id")
+		->join('tbl_item_units',"tbl_items.item_unit_id","=","tbl_item_units.id")
+		->join('tbl_item_departments',"tbl_items.item_department_id","=","tbl_item_departments.id")
+		->join('users',"tbl_items.user_id","=","users.id")
+		->join('tbl_facilities',"tbl_items.facility_id","=","tbl_facilities.id")
+		->get();
 
 	}
-
-
-	// public function updatenewitem(Request $request)
-	// {
-	// 	$tbl_item_query = Tbl_item::where('id',$request->id)->get();
-	// 	if($tbl_item_query['item_buyingprice_new'] == $request['item_buyingprice_new']){
-	// 		$item_buyingprice_new=$request['item_buyingprice_new'];
-	// 	}
-	// 	else{
-	// 		$item_buyingprice_new=$request['item_buyingprice_new'];
-	// 		$item_buyingprice_old=$tbl_item_query;
-	// 	}
-	// 	$item_new_buying_price=$request['item_new_buying_price'];
-	// 	$item_new_selling_price=$request['item_new_selling_price'];
-	// 	$item_name=$request['item_name']; 
-	// 	$item_type_id=$request['item_type_id']; 
-	// 	$item_category_id=$request['item_category_id'];
-	// 	$item_department_id=$request['item_department_id'];
-	// 	$item_unit_id=$request['item_unit_id'];
-	// 	$item_batche_id=$request['item_batche_id'];
-	// 	$item_status_id=$request['item_status_id'];
-	// 	$item_buyingprice_new=$request['item_buyingprice_new'];
-	// 	$item_buyingprice_old=$request['item_buyingprice_old'];
-	// 	$item_sellingprice_new=$request['item_sellingprice_new'];
-	// 	$item_sellingprice_old=$request['item_sellingprice_old'];
-	// 	$item_quantity_bought=$request['item_quantity_bought'];
-	// 	$newboughtquantity=$request['new_item_bought'];
-	// 	$item_quantity_old=$request['item_quantity_old'];
-	// 	$item_quantity_new=$request['item_quantity_new'];
-	// 	$user_id=$request['user_id']; 
-	// 	$facility_id=$request['facility_id'];
-	// 	$sumofoldandnewboughtitems =$item_quantity_bought + $newboughtquantity;
-
-
-	// 	if(patientRegistration::duplicate('tbl_items',array(
-    //         'item_name','item_type_id','item_category_id','item_department_id',
-	// 		'item_unit_id','item_batche_id','item_status_id','item_buyingprice_new',
-	// 		'item_sellingprice_new','item_quantity_bought','item_reorder','facility_id',
-    //         "((timestampdiff(minute,created_at,CURRENT_TIMESTAMP) >=0))"),
-    //         array($item_name,$item_type,$item_category,$department_id,$units,$batch,$status,$buyingprice,
-	// 		$sellingprice,$quantitybought,$reorder,$facility_id))==true){
-
-    //         return response()->json([
-    //             'msg' => $item_name." ALREADY EXISTS",
-    //             'status' =>0
-    //         ]);
-    //     }
-    //     else{
-	// 			$data_record=Tbl_item::create(array(
-			
-	// 			'item_name'=>$item_name,
-	// 			'item_type_id'=>$item_type_id,
-	// 			'item_category_id'=>$item_category_id,
-    //             'item_department_id'=>$item_department_id,
-	// 			'item_unit_id'=>$item_unit_id,
-	// 			'item_batche_id'=>$item_batche_id,
-	// 			'item_status_id'=>$item_status_id,
-	// 			'user_id'=>$user_id,
-	// 			'facility_id'=>$facility_id,
-	// 			//insert new item buying price only if is entered othewise replace the one existed 
-	// 			// 'item_buyingprice_new'=>$item_buyingprice_new, $item_new_buying_price
-	// 			// if ($item_new_buying_price == '') { 
-	// 			// 	DB :: insert('insert into book (item_buyingprice_new) values ());
-	// 			// }else{
-	// 			// 	$tb = DB :: select('select max(tb) from book where ta = ?', array('$ta'));
-	// 			// 	if ($tb <= 20) {
-	// 			// 		DB :: insert('insert into book (ta, tb) values (ta=?, tb=?)', array('$ta', '$tb' + 1));
-	// 			// 	}else{
-	// 			// 		DB :: insert('insert into book (ta, tb) values (ta=?, tb=?)', array('$ta' + 1, 1));
-	// 			// 	}
-	// 			// },
-	
-
-	// 	//return $sumofoldandnewboughtitems;
-	// 	//return $user_id;
-
-	// 	// if(patientRegistration::duplicate('tbl_items',array(
-    //     //     'item_name','item_type_id','item_category_id','item_department_id',
-	// 	// 	'item_unit_id','item_batche_id','item_status_id','item_buyingprice_new',
-	// 	// 	'item_sellingprice_new','item_quantity_bought','item_reorder','facility_id',
-    //     //     "((timestampdiff(minute,created_at,CURRENT_TIMESTAMP) >=0))"),
-    //     //     array($item_name,$item_type,$item_category,$department_id,$units,$batch,$status,$buyingprice,
-	// 	// 	$sellingprice,$quantitybought,$reorder,$facility_id))==true){
-
-    //     //     return response()->json([
-    //     //         'msg' => $item_name." ALREADY EXISTS",
-    //     //         'status' =>0
-    //     //     ]);
-    //     // }
-    //     // else{
-			
-	// 	// 	$data_record=Tbl_item::create(array(
-			
-	// 	// 		'item_name'=>$item_name,
-	// 	// 		'item_type_id'=>$item_type_id,
-	// 	// 		'item_category_id'=>$item_category_id,
-    //     //         'item_department_id'=>$item_department_id,
-	// 	// 		'item_unit_id'=>$item_unit_id,
-	// 	// 		'item_batche_id'=>$item_batche_id,
-	// 	// 		'item_status_id'=>$item_status_id,
-	// 	// 		'user_id'=>$user_id,
-	// 	// 		'facility_id'=>$facility_id,
-
-    //     //         'item_buyingprice_new'=>$item_buyingprice_new, 
-	// 	// 		//insert new item buying price only if is entered othewise replace the one existed 
-
-	// 	// 		'item_buyingprice_old'=>$item_buyingprice_old,
-	// 	// 		//insert old item buying price (if no new item buying price entered - replace existed)
-	// 	// 		//insert existed item buying price as item buying price old (if item buying new is entered)
-
-	// 	// 		'item_sellingprice_new'=>$sellingprice,
-    //     //         'item_sellingprice_old'=>0,
-                
-	// 	// 		'item_quantity_bought'=>$quantitybought,
-    //     //         'item_quantity_old'=>0,
-    //     //         'item_quantity_new'=>0,
-
-    //     //         'item_reorder'=>$reorder,
-    //     //         'item_date_bought'=>$ldate,
-    //     //         'item_time_bought'=>$time,
-	// 	// 		'status'=>$status, 
-	// 	// 		'created_at'=>$create_at,
-	// 	// 		'updated_at'=>$datetime 
-
-	// 	// 		$item_buyingprice_new=$request['item_buyingprice_new'];
-	// 	// 		$item_buyingprice_old=$request['item_buyingprice_old'];
-	// 	// 		$item_sellingprice_new=$request['item_sellingprice_new'];
-	// 	// 		$item_sellingprice_old=$request['item_sellingprice_old'];
-	// 	// 		$item_quantity_bought=$request['item_quantity_bought'];
-	// 	// 		$newboughtquantity=$request['new_item_bought'];
-	// 	// 		$item_quantity_old=$request['item_quantity_old'];
-	// 	// 		$item_quantity_new=$request['item_quantity_new'];
-				
-	// 	// 		$sumofoldandnewboughtitems =$item_quantity_bought + $newboughtquantity;
-
-    //     //     ));
-				
-    //     //     return response()->json(
-    //     //         ['msg'=>$item_name ." Successful Registered",
-    //     //             'status'=>1
-    //     //         ]
-	// 	// 		)  ;
-	// 	// 	}
-	// }
-
-
-	// }
-	
-	 
+   
 }
 
