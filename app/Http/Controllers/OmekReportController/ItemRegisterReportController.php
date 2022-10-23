@@ -39,7 +39,7 @@ class ItemRegisterReportController extends Controller
 
 	public function itemregistereddownloadexcel($type)  
     {  
-        //
+		//$type=$request['xls'];
 		$facility_id = 1;
 		$data = DB::table('tbl_items')
 				->where('tbl_items.facility_id',$facility_id)
@@ -94,12 +94,13 @@ class ItemRegisterReportController extends Controller
 	}
 
 	//download today sales report
-	public function todaysalesreportdownloadexcel($type)  
+	public function todaysalesreportdownloadexcel(Request $request)  
     {  
         //
 		$user_id= 1; 
 		$facility_id = 1;
 		$ldate = date('Y-m-d');
+		return $type=$request['xls'];
 
 		$data = DB::table('tbl_sales')
 		->select

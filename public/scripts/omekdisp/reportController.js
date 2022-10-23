@@ -152,11 +152,12 @@
 		//return $scope.client_residence;
 		}
 
-		$scope.excelDownload=function(){
-			
-			$http.get('public/api/downloadExcel').then(function(data) {
-				$scope.download =data.data;
-				
+		$scope.excelDownload=function(xls){
+			var doctype = 'xls';
+			//console.log(facility_id);
+			$http.get('public/api/todaysalesreport/'+doctype).then(function(data) {
+				console.log(data.data);
+				//$scope.download =data.data;
 				//console.log($scope.download);
 				});
 				//return 2;
